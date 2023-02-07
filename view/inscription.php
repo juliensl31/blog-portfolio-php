@@ -2,11 +2,11 @@
 
 	session_start();
 
-	require_once('option.php');
+	require_once('../src/option.php');
 
 	if(isset($_SESSION['connect'])) {
 
-		header('location: index.php');
+		header('location: connectionView.php');
 		exit();
 
 	}
@@ -14,7 +14,7 @@
 	if(!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_two'])) {
 
 		// Connexion à la bdd
-		require_once('../model/Manager.php');
+		require_once('../src/connection.php');
 
 		// Variables
 		$email			= htmlspecialchars($_POST['email']);
@@ -38,7 +38,6 @@
 		}
 		
 		// L'adresse email est-elle en doublon ?
-		$bdd = require_once('../model/Manager.php');
 		$req = $bdd->prepare('SELECT COUNT(*) as numberEmail FROM user WHERE email = ?');
 		$req->execute([$email]);
 
@@ -61,7 +60,8 @@
 		$secret = sha1($secret).time();
 
 		// Ajouter un utilisateur
-		addUser(htmlspecialchars($_POST['email']), htmlspecialchars($_POST['password']), htmlspecialchars($_POST['secret']));
+		$req = $bdd->prepare('INSERT INTO user(email, password, secret) VALUES(?, ?, ?)');
+		$req->execute([$email, $password, $secret]);
 
 		header('location: inscription.php?success=1');
 		exit();
@@ -88,7 +88,7 @@ ob_start();
 						<a href="../index.php" class="nav-link ">Accueil</a>
 					</li>
 					<li class="nav-item">
-						<a href="connection.php" class="nav-link">Connexion</a>
+						<a href="connectionView.php" class="nav-link">Connexion</a>
 					</li>
 				</ul>
 			</div>
@@ -104,7 +104,7 @@ ob_start();
 			echo '<div class="alert error">' . htmlspecialchars($_GET['message']) . '</div>';
 		} else if (isset($_GET['success'])) {
 
-			echo '<div class="alert success">Vous êtes désormais inscrit. <a href="index.php">Connectez-vous</a>.</div>';
+			echo '<div class="alert success">Vous êtes désormais inscrit. <a href="connectionView.php">Connectez-vous</a>.</div>';
 		} ?>
 
 		<form method="post" action="inscription.php">
@@ -114,11 +114,11 @@ ob_start();
 			<button id="identifier" type="submit">S'inscrire</button>
 		</form>
 
-		<p class="grey">Déjà inscrit ? <a href="connection.php">Connectez-vous</a>.</p>
+		<p class="grey">Déjà inscrit ? <a href="connectionView.php">Connectez-vous</a>.</p>
 	</div>
 </section>
 <?php
 $content = ob_get_clean();
 
-require('../view/base.php');
+require('base.php');
 ?>

@@ -1,15 +1,5 @@
 
-#connection {
-	padding: 0;
-	margin: 0;
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	background-image: url('../assets/background.jpg');
-	background-size: cover;
-	background-position: center;
-	min-height: 100%;
-}
+
 
 a {
 	color: white !important;
@@ -42,6 +32,18 @@ input[type="email"], input[type="password"] {
 	color: #b3b3b3;
 	background-color: #333333;
 	margin-bottom: 15px;
+}
+
+#connection {
+	padding: 0;
+	margin: 0;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	background-image: url('../assets/background.jpg');
+	background-size: cover;
+	background-position: center;
+	min-height: 100%;
 }
 
 #identifier {

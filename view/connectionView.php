@@ -2,12 +2,12 @@
 
 session_start();
 
-require_once('../vendor/option.php');
+require_once('../src/option.php');
 
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
 	// Connexion à la bdd
-	require_once('../model/Manager.php');
+	require_once('../src/connection.php');
 
 	// Variables
 	$email			= htmlspecialchars($_POST['email']);
@@ -16,7 +16,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 	// L'adresse email est-elle correcte ?
 	if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
-		header('location: connection.php?error=1&message=Votre adresse email est invalide.');
+		header('location: connectionView.php?error=1&message=Votre adresse email est invalide.');
 		exit();
 	}
 
@@ -31,7 +31,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
 		if ($emailVerification['numberEmail'] != 1) {
 
-			header('location: connection.php?error=1&message=Impossible de vous authentifier correctement.');
+			header('location: connectionView.php?error=1&message=Impossible de vous authentifier correctement.');
 			exit();
 		}
 	}
@@ -52,11 +52,11 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 				setcookie('auth', $user['secret'], time() + 365 * 24 * 3600, '/', null, false, true);
 			}
 
-			header('location: connection.php?success=1');
+			header('location: connectionView.php?success=1');
 			exit();
 		} else {
 
-			header('location: connection.php?error=1&message=Impossible de vous authentifier correctement.');
+			header('location: connectionView.php?error=1&message=Impossible de vous authentifier correctement.');
 			exit();
 		}
 	}
@@ -98,7 +98,7 @@ ob_start();
 			if (isset($_GET['success'])) {
 				echo '<div class="alert success">Vous êtes maintenant connecté.</div>';
 			} ?>
-			<small><a href="logout.php">Déconnexion</a></small>
+			<small><a href="../logout.php">Déconnexion</a></small>
 
 		<?php } else { ?>
 			<h1>S'identifier</h1>
@@ -110,7 +110,7 @@ ob_start();
 				}
 			} ?>
 
-			<form method="post" action="connection.php">
+			<form method="post" action="connectionView.php">
 				<input type="email" name="email" placeholder="Votre adresse email" required />
 				<input type="password" name="password" placeholder="Mot de passe" required />
 				<button id="identifier" type="submit">S'identifier</button>
@@ -118,12 +118,12 @@ ob_start();
 			</form>
 
 
-			<p class="grey">Première visite ? <a href="../vendor/inscription.php">Inscrivez-vous</a>.</p>
+			<p class="grey">Première visite ? <a href="inscription.php">Inscrivez-vous</a>.</p>
 		<?php } ?>
 	</div>
 </section>
 <?php
 $content = ob_get_clean();
 
-require('../view/base.php');
+require('base.php');
 ?>
