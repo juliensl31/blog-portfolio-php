@@ -2,7 +2,7 @@
 
 	session_start();
 
-	require_once('src/option.php');
+	require_once('option.php');
 
 	if(isset($_SESSION['connect'])) {
 
@@ -14,7 +14,7 @@
 	if(!empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['password_two'])) {
 
 		// Connexion à la bdd
-		require_once('src/connection.php');
+		require_once('../model/Manager.php');
 
 		// Variables
 		$email			= htmlspecialchars($_POST['email']);
@@ -38,6 +38,7 @@
 		}
 		
 		// L'adresse email est-elle en doublon ?
+		$bdd = require_once('../model/Manager.php');
 		$req = $bdd->prepare('SELECT COUNT(*) as numberEmail FROM user WHERE email = ?');
 		$req->execute([$email]);
 
@@ -60,53 +61,64 @@
 		$secret = sha1($secret).time();
 
 		// Ajouter un utilisateur
-		$req = $bdd->prepare('INSERT INTO user(email, password, secret) VALUES(?, ?, ?)');
-		$req->execute([$email, $password, $secret]);
+		addUser(htmlspecialchars($_POST['email']), htmlspecialchars($_POST['password']), htmlspecialchars($_POST['secret']));
 
 		header('location: inscription.php?success=1');
 		exit();
 
 	}
-
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Netflix</title>
-	<link rel="stylesheet" type="text/css" href="design/default.css">
-	<link rel="icon" type="image/png" href="assets/favicon.png">
-</head>
-<body>
+<?php
+$title = "Inscription";
 
-	<?php require_once('src/header.php'); ?>
-	
-	<section>
-		<div id="login-body">
-			<h1>S'inscrire</h1>
+ob_start();
+?>
+<nav class="navbar bg-dark navbar-dark navbar-expand-md sticky-top">
+	<div class="container">
+		<div class="navbar-brand">Blog / Portfolio</div>
+		<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarText">
+			<span class="navbar-toggler-icon"></span>
+		</button>
 
-			<?php if(isset($_GET['error']) && isset($_GET['message'])) {
-
-				echo '<div class="alert error">'.htmlspecialchars($_GET['message']).'</div>';
-
-			} else if(isset($_GET['success'])) {
-
-				echo '<div class="alert success">Vous êtes désormais inscrit. <a href="index.php">Connectez-vous</a>.</div>';
-
-			} ?>
-
-			<form method="post" action="inscription.php">
-				<input type="email" name="email" placeholder="Votre adresse email" required />
-				<input type="password" name="password" placeholder="Mot de passe" required />
-				<input type="password" name="password_two" placeholder="Retapez votre mot de passe" required />
-				<button type="submit">S'inscrire</button>
-			</form>
-
-			<p class="grey">Déjà sur Netflix ? <a href="index.php">Connectez-vous</a>.</p>
+		<div class="text-end">
+			<div id="navbarText" class="collapse navbar-collapse">
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a href="../index.php" class="nav-link ">Accueil</a>
+					</li>
+					<li class="nav-item">
+						<a href="connection.php" class="nav-link">Connexion</a>
+					</li>
+				</ul>
+			</div>
 		</div>
-	</section>
+	</div>
+</nav>
+<section id="connection">
+	<div id="login-body">
+		<h1>S'inscrire</h1>
 
-	<?php require_once('src/footer.php'); ?>
-</body>
-</html>
+		<?php if (isset($_GET['error']) && isset($_GET['message'])) {
+
+			echo '<div class="alert error">' . htmlspecialchars($_GET['message']) . '</div>';
+		} else if (isset($_GET['success'])) {
+
+			echo '<div class="alert success">Vous êtes désormais inscrit. <a href="index.php">Connectez-vous</a>.</div>';
+		} ?>
+
+		<form method="post" action="inscription.php">
+			<input type="email" name="email" placeholder="Votre adresse email" required />
+			<input type="password" name="password" placeholder="Mot de passe" required />
+			<input type="password" name="password_two" placeholder="Retapez votre mot de passe" required />
+			<button id="identifier" type="submit">S'inscrire</button>
+		</form>
+
+		<p class="grey">Déjà inscrit ? <a href="connection.php">Connectez-vous</a>.</p>
+	</div>
+</section>
+<?php
+$content = ob_get_clean();
+
+require('../view/base.php');
+?>

@@ -1,6 +1,6 @@
 <?php
 
-namespace MVC\Manager;
+namespace Blog\Manager;
 
 use Exception;
 use PDO;
