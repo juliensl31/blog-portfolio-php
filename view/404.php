@@ -1,5 +1,5 @@
 <?php
-    $title = "Accueil";
+    $title = "404";
 
     ob_start();
 ?>

@@ -95,8 +95,8 @@ ob_start();
 		</div>
 	</div>
 </nav>
-<section id="connection">
-	<div id="login-body">
+<section id="connection" class="vh-100 d-flex flex-grow-1">
+	<div id="login-body" class="p-5 mt-5 rounded text-light mx-auto my-auto bg-dark bg-opacity-75">
 		<h1>S'inscrire</h1>
 
 		<?php if (isset($_GET['error']) && isset($_GET['message'])) {
@@ -105,17 +105,17 @@ ob_start();
 			
 		} else if (isset($_GET['success'])) {
 
-			echo '<div class="alert success">Vous êtes désormais inscrit. <a href="connectionView.php">Connectez-vous</a>.</div>';
+			echo '<div class="bg-success rounded p-2 mb-2 text-center">Vous êtes désormais inscrit. <a href="connectionView.php" class="text-light">Connectez-vous</a></div>';
 		} ?>
 
 		<form method="post" action="inscriptionView.php">
 			<input type="email" name="email" placeholder="Votre adresse email" required />
 			<input type="password" name="password" placeholder="Mot de passe" required />
 			<input type="password" name="password_two" placeholder="Retapez votre mot de passe" required />
-			<button id="identifier" type="submit">S'inscrire</button>
+			<button type="submit" class="bg-info text-light fw-bold border-0 w-100 p-3 rounded mb-2">S'inscrire</button>
 		</form>
 
-		<p class="grey">Déjà inscrit ? <a href="connectionView.php">Connectez-vous</a>.</p>
+		<p class="text-warning">Déjà inscrit ? <a href="connectionView.php" class="text-light text-decoration-none">Connectez-vous</a>.</p>
 	</div>
 </section>
 <?php

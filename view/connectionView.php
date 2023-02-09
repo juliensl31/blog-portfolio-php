@@ -88,17 +88,17 @@ ob_start();
             </div>
         </div>
     </nav>
-<section id="connection">
-	<div id="login-body">
+<section id="connection" class="vh-100 d-flex flex-grow-1">
+	<div id="login-body" class="p-5 mt-5 rounded text-light mx-auto my-auto bg-dark bg-opacity-75">
 
 		<?php if (isset($_SESSION['connect'])) { ?>
 
 			<h1>Bonjour !</h1>
 			<?php
 			if (isset($_GET['success'])) {
-				echo '<div class="alert success">Vous êtes maintenant connecté.</div>';
+				echo '<div class="bg-success rounded p-2 mb-2 text-center">Vous êtes maintenant connecté</div>';
 			} ?>
-			<small><a href="../logout.php">Déconnexion</a></small>
+			<small><a href="../logout.php" class="text-light text-decoration-none">Déconnexion</a></small>
 
 		<?php } else { ?>
 			<h1>S'identifier</h1>
@@ -106,19 +106,19 @@ ob_start();
 			<?php if (isset($_GET['error'])) {
 
 				if (isset($_GET['message'])) {
-					echo '<div class="alert error">' . htmlspecialchars($_GET['message']) . '</div>';
+					echo '<div class="bg-danger rounded p-2 mb-2 text-center">' . htmlspecialchars($_GET['message']) . '</div>';
 				}
 			} ?>
 
 			<form method="post" action="connectionView.php">
 				<input type="email" name="email" placeholder="Votre adresse email" required />
 				<input type="password" name="password" placeholder="Mot de passe" required />
-				<button id="identifier" type="submit">S'identifier</button>
-				<label id="option"><input type="checkbox" name="auto" checked />Se souvenir de moi</label>
+				<button type="submit" class="bg-info text-light fw-bold border-0 w-100 p-3 rounded mb-2">S'identifier</button>
+				<label id="option" class="text-warning mt-2 d-block"><input class="m-2" type="checkbox" name="auto" checked />Se souvenir de moi</label>
 			</form>
 
 
-			<p class="grey">Première visite ? <a href="inscriptionView.php">Inscrivez-vous</a>.</p>
+			<p class="text-warning">Première visite ? <a href="inscriptionView.php" class="text-light text-decoration-none">Inscrivez-vous</a></p>
 		<?php } ?>
 	</div>
 </section>
