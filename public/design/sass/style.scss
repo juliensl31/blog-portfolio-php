@@ -1,3 +1,19 @@
+@import "../../../node_modules/bootstrap/scss/functions";
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import 'bootstrap_custom';
+
+@mixin googleFonts($nom) {
+    @import url('https://fonts.googleapis.com/css2?family=' + $nom + '&display=swap');
+}
+@include googleFonts('Roboto');
+@include googleFonts('Open+Sans');
+@include googleFonts('Zen+Dots');
+
+html {
+    font-family: 'Roboto';
+}
+
 * {
 	box-sizing: border-box;
 }
@@ -24,7 +40,7 @@ input[type="email"], input[type="password"] {
 
 
 #connection {
-	background-image: url('../assets/background.jpg');
+	background-image: url('../../assets/background.jpg');
 	background-size: cover;
 	background-position: center;
 }
