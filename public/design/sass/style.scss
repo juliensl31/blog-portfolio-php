@@ -1,7 +1,11 @@
+// Required
 @import "../../../node_modules/bootstrap/scss/functions";
 @import "../../../node_modules/bootstrap/scss/variables";
 @import "../../../node_modules/bootstrap/scss/mixins";
-@import 'bootstrap_custom';
+@import "../../../node_modules/bootstrap/scss/maps";
+
+@import "bootstrap_custom";
+
 
 @mixin googleFonts($nom) {
     @import url('https://fonts.googleapis.com/css2?family=' + $nom + '&display=swap');
@@ -11,7 +15,7 @@
 @include googleFonts('Zen+Dots');
 
 html {
-    font-family: 'Roboto';
+    font-family: 'roboto';
 }
 
 * {

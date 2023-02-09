@@ -1,8 +1,23 @@
-// Required
+// scss-docs-start theme-color-variables
+$primary:       $blue;
+$secondary:     $gray-600;
+$success:       $green;
+$info:          #182029;
+$warning:       #ff5400;
+$danger:        $red;
+$light:         $gray-100;
+$dark:          $gray-900;
+// scss-docs-end theme-color-variables
 
-
-
+// scss-docs-start theme-colors-map
 $theme-colors: (
-    "info": #182029,
-    "warning": #ff5400,
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
 );
+// scss-docs-end theme-colors-map
