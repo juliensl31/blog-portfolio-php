@@ -118,7 +118,7 @@ ob_start();
 			</form>
 
 
-			<p class="grey">Première visite ? <a href="inscription.php">Inscrivez-vous</a>.</p>
+			<p class="grey">Première visite ? <a href="inscriptionView.php">Inscrivez-vous</a>.</p>
 		<?php } ?>
 	</div>
 </section>

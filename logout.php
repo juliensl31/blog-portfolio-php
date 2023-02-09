@@ -5,5 +5,5 @@
 
     setcookie('auth', '', time() - 1);
 
-    header('location: connectionView.php');
+    header('location: index.php');
     exit();

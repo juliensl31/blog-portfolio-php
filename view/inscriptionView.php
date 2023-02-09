@@ -24,7 +24,7 @@
 		// Les mots de passe sont-ils différents ?
 		if($password != $passwordTwo) {
 
-			header('location: inscription.php?error=1&message=Vos mots de passe ne sont pas identiques.');
+			header('location: inscriptionView.php?error=1&message=Vos mots de passe ne sont pas identiques.');
 			exit();
 
 		}
@@ -32,7 +32,7 @@
 		// L'adresse email est-elle correcte ?
 		if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
-			header('location: inscription.php?error=1&message=Votre adresse email est invalide.');
+			header('location: inscriptionView.php?error=1&message=Votre adresse email est invalide.');
 			exit();
 
 		}
@@ -45,7 +45,7 @@
 
 			if($emailVerification['numberEmail'] != 0) {
 
-				header('location: inscription.php?error=1&message=Votre adresse email est déjà utilisée par un autre utilisateur.');
+				header('location: inscriptionView.php?error=1&message=Votre adresse email est déjà utilisée par un autre utilisateur.');
 				exit();
 
 			}
@@ -63,7 +63,7 @@
 		$req = $bdd->prepare('INSERT INTO user(email, password, secret) VALUES(?, ?, ?)');
 		$req->execute([$email, $password, $secret]);
 
-		header('location: inscription.php?success=1');
+		header('location: inscriptionView.php?success=1');
 		exit();
 
 	}
@@ -102,12 +102,13 @@ ob_start();
 		<?php if (isset($_GET['error']) && isset($_GET['message'])) {
 
 			echo '<div class="alert error">' . htmlspecialchars($_GET['message']) . '</div>';
+			
 		} else if (isset($_GET['success'])) {
 
 			echo '<div class="alert success">Vous êtes désormais inscrit. <a href="connectionView.php">Connectez-vous</a>.</div>';
 		} ?>
 
-		<form method="post" action="inscription.php">
+		<form method="post" action="inscriptionView.php">
 			<input type="email" name="email" placeholder="Votre adresse email" required />
 			<input type="password" name="password" placeholder="Mot de passe" required />
 			<input type="password" name="password_two" placeholder="Retapez votre mot de passe" required />
