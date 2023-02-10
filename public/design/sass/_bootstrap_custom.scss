@@ -1,15 +1,14 @@
-// scss-docs-start theme-color-variables
-$primary:       $blue;
-$secondary:     $gray-600;
-$success:       $green;
-$info:          #182029;
-$warning:       #ff5400;
-$danger:        $red;
-$light:         $gray-100;
-$dark:          $gray-900;
-// scss-docs-end theme-color-variables
+$theme-colors: (
+  "info":       #3C96B3,
+  "warning":    #ff5400,
+  "dark":       #2A4E5A,
+  "success":    #37ce11,
+  "light":      #d3cdcd,
+);
 
-// scss-docs-start theme-colors-map
+@import '../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+/*
 $theme-colors: (
   "primary":    $primary,
   "secondary":  $secondary,
@@ -19,5 +18,5 @@ $theme-colors: (
   "danger":     $danger,
   "light":      $light,
   "dark":       $dark
-);
-// scss-docs-end theme-colors-map
+)
+*/
