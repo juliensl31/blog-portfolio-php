@@ -1,3 +1,42 @@
+<?php
+
+// Routeur
+require('controller/controller.php');
+
+    try {
+        if(isset($_GET['page'])) {
+    
+            if($_GET['page'] == 'accueil') {
+                article();
+            }
+            else if ($_GET['page'] == 'article') {
+                
+                if (isset($_POST['titre']) && !empty($_POST['message'])) {
+                    addArticle(htmlspecialchars($_POST['titre']), htmlspecialchars($_POST['message']));
+                } 
+                if(isset($_POST['delete'])) {
+                    removeArticle($id);
+                }
+                else{
+                    article();
+                }
+
+            }
+            else {
+               throw new Exception("Cette page n'existe pas ou à été supprimée.");
+            }
+        }
+        else {
+            article();
+        }
+    } 
+    catch (Exception $e) {
+        $error = $e->getMessage();
+        require('view/404.php');
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,24 +52,8 @@
 </head>
 
 <body>
-<nav class="navbar bg-dark navbar-dark navbar-expand-md sticky-top">
-        <div class="container">
-            <div class="navbar-brand">Blog / Portfolio</div>
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarText">
-                <span class="navbar-toggler-icon"></span>
-            </button>
 
-            <div class="text-end">
-                <div id="navbarText" class="collapse navbar-collapse">
-                    <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a href="view/connectionView.php" class="nav-link">Connexion / Inscription</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </nav>
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
 </body>
 

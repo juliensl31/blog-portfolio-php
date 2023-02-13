@@ -74,27 +74,6 @@ $title = "Inscription";
 
 ob_start();
 ?>
-<nav class="navbar bg-dark navbar-dark navbar-expand-md sticky-top">
-	<div class="container">
-		<div class="navbar-brand">Blog / Portfolio</div>
-		<button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarText">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="text-end">
-			<div id="navbarText" class="collapse navbar-collapse">
-				<ul class="navbar-nav">
-					<li class="nav-item">
-						<a href="../index.php" class="nav-link ">Accueil</a>
-					</li>
-					<li class="nav-item">
-						<a href="connectionView.php" class="nav-link">Connexion</a>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
-</nav>
 <section class="d-flex flex-grow-1">
 	<div id="login-body" class="p-5 mt-5 rounded text-light mx-auto my-auto bg-secondary bg-opacity-50">
 		<h1 class="text-uppercase">S'inscrire</h1>
