@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 // Routeur
 require('controller/controller.php');
 
@@ -21,6 +23,9 @@ require('controller/controller.php');
                 
                 if(isset($_POST['delete'])) {
                     removeArticle($id);
+                }
+                else if(isset($_POST['update'])) {
+                    changeArticle($titre, $message, $id);
                 }
                 else {
                    article(); 
