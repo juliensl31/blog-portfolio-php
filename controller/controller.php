@@ -4,6 +4,13 @@ use BLOG\Article\ArticleModel;
 
 require_once('model/ArticleModel.php');
 
+function home() {
+    $articleModel = new ArticleModel();
+    $requete = $articleModel->getLastArticle();
+
+    require('view/homeView.php');
+}
+
 function article() {
     $articleModel = new ArticleModel();
     $requete = $articleModel->getArticle();

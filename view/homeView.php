@@ -1,12 +1,11 @@
 <?php
-$title = "Article";
+$title = "Accueil";
 
 ob_start();
 ?>
 
 <section class="container">
-   <h1 class="text-warning mt-5 text-decoration-underline">ARTICLES</h1> 
-   <p class="m-4"><a href="index.php" class="text-light text-decoration-none ">Retour à l'accueil</a></p> 
+   <h1 class="text-warning mt-5 text-decoration-underline">ARTICLE</h1> 
 </section>
 <section class="container" id="card">
     <?php while ($article = $requete->fetch()) { ?>

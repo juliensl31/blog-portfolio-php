@@ -15,6 +15,14 @@ class ArticleModel extends Manager {
 
         return $requete;
     }  
+   
+    public function getLastArticle() {
+        
+        $bdd = $this->connection();
+        $requete = $bdd->query('SELECT * FROM article ORDER BY created_date DESC LIMIT 0, 3'); 
+
+        return $requete;
+    }  
 
     public function postArticle($titre, $message) {
         $bdd = $this->connection();

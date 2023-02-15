@@ -3,23 +3,29 @@
 // Routeur
 require('controller/controller.php');
 
+
     try {
         if(isset($_GET['page'])) {
     
             if($_GET['page'] == 'accueil') {
-                article();
-            }
-            else if ($_GET['page'] == 'article') {
-                
+
                 if (isset($_POST['titre']) && !empty($_POST['message'])) {
                     addArticle(htmlspecialchars($_POST['titre']), htmlspecialchars($_POST['message']));
                 } 
+                
+                else{
+                    home();
+                }
+            }
+            else if ($_GET['page'] == 'article') {
+                
                 if(isset($_POST['delete'])) {
                     removeArticle($id);
                 }
-                else{
-                    article();
+                else {
+                   article(); 
                 }
+                
 
             }
             else {
@@ -27,7 +33,7 @@ require('controller/controller.php');
             }
         }
         else {
-            article();
+            home();
         }
     } 
     catch (Exception $e) {

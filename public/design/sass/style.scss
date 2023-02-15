@@ -8,16 +8,10 @@
 @include googleFonts('Open+Sans');
 @include googleFonts('Zen+Dots');
 
-html {
-    font-family: 'open sans';
-}
 
 body {
-	background-image: url('../../assets/network-g5c32064c9_1920.jpg');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	height: 100vh;
+	font-family: 'roboto';
+	background-color: #2a4e5a8e;
 }
 
 * {
@@ -49,9 +43,26 @@ input[type="email"], input[type="password"] {
 	max-width: 450px;
 }
 
+#background {
+	background-image: url('../../assets/network-g5c32064c9_1920.jpg');
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	height: 100vh;
+}
+
 .container {
-	width: 1000px;
+	// width: 1000px;
 	margin: 0 auto;
+	
+}
+
+#card {
+	display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(70px, auto);
+    grid-gap: 15px;
+    justify-content: center;
 }
 
 @media all and (max-width: 1030px) {

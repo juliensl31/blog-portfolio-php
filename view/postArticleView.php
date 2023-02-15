@@ -3,15 +3,16 @@
 $title = "Ajout d'article";
 
 ob_start();
-?>
 
+?>
+<section id="background">
 <section class="container">
-    <h1 class="text-light mt-5 text-decoration-underline"> AJOUTER UN ARTICLE</h1>
+    <h1 class="text-light pt-5 text-decoration-underline"> AJOUTER UN ARTICLE</h1>
     
-    <form action="../index.php?page=article" method="post">
+    <form action="../index.php?page=accueil" method="post">
         <p>
             <label for="titre" class="text-light mb-2 fw-bold h3">Titre</label><br>
-            <input class="rounded w-100 border-0 p-2" type="text" name="titre" id="titre">
+            <input class="rounded w-50 border-0 p-2" type="text" name="titre" id="titre">
         </p>
         <p>
             <label for="message" class="text-light mb-2 fw-bold h3">Contenu</label><br>
@@ -22,7 +23,7 @@ ob_start();
         </p>
     </form>
 </section>
-
+</section>
 <?php
 $content = ob_get_clean();
 

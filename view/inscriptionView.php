@@ -74,7 +74,7 @@ $title = "Inscription";
 
 ob_start();
 ?>
-<section class="d-flex flex-grow-1">
+<section class="d-flex flex-grow-1" id="background">
 	<div id="login-body" class="p-5 mt-5 rounded text-light mx-auto my-auto bg-secondary bg-opacity-50">
 		<h1 class="text-uppercase">S'inscrire</h1>
 
