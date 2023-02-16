@@ -31,6 +31,13 @@ function addArticle($titre, $message) {
     }
  }
 
+ function getArticle() {
+    $articleModel = new ArticleModel();
+    $requete = $articleModel->getArticle();
+
+    require('view/updateView.php');
+}
+
  function removeArticle($id){
     $articleModel = new ArticleModel;
     $result = $articleModel->deleteArticle($id);

@@ -24,6 +24,9 @@ require('controller/controller.php');
                 if(isset($_POST['delete'])) {
                     removeArticle($id);
                 }
+                else if(isset($_POST['upgrade'])) {
+                    getArticle();
+                }
                 else if(isset($_POST['update'])) {
                     changeArticle($titre, $message, $id);
                 }

@@ -25,6 +25,7 @@ class ArticleModel extends Manager {
     }  
 
     public function postArticle($titre, $message) {
+
         $bdd = $this->connection();
         $requete = $bdd->prepare('INSERT INTO article(title, content) VALUES(?, ?)');
         $result = $requete->execute([$titre, $message]);
@@ -32,14 +33,25 @@ class ArticleModel extends Manager {
         return $result;
     }
 
+    // public function upgradeArticle() {
+    //     $id=$_GET['id'];
+    //     $bdd = $this->connection();
+    //     $requete = $bdd->prepare('SELECT * FROM article WHERE id = ?');
+    //     $result = $requete->execute([
+    //         'id'        => $id
+    //     ]);
+
+    //     return $result;
+    // }
+
     public function updateArticle($titre, $message) {
-        $id = $_POST['id'];
+
+        // $id = $_POST['id'];
         $bdd = $this->connection();
-        $requete = $bdd->prepare('UPDATE article SET title, content = :newTitle, :newContent WHERE id = :id');
+        $requete = $bdd->prepare('UPDATE article SET title, content = :newTitle, :newContent WHERE id = ?');
         $result = $requete->execute([
             'newTitle'      => $titre,
-            'newContent'    => $message,
-            'id'            => $id
+            'newContent'    => $message
         ]);
 
         return $result;
