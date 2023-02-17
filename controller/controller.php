@@ -31,16 +31,9 @@ function addArticle($titre, $message) {
     }
  }
 
- function getArticle() {
-    $articleModel = new ArticleModel();
-    $requete = $articleModel->getArticle();
-
-    require('view/updateView.php');
-}
-
- function removeArticle($id){
+ function removeArticle(){
     $articleModel = new ArticleModel;
-    $result = $articleModel->deleteArticle($id);
+    $result = $articleModel->deleteArticle();
 
     if($result === false) {
         throw new Exception("Impossible de supprimer votre article pour le moment");
@@ -51,9 +44,9 @@ function addArticle($titre, $message) {
     }
  }
 
- function changeArticle($titre, $message, $id){
+ function changeArticle($titre, $message){
     $articleModel = new ArticleModel;
-    $result = $articleModel->updateArticle($titre, $message, $id);
+    $result = $articleModel->updateArticle($titre, $message);
 
     if($result === false) {
         throw new Exception("Impossible de supprimer votre article pour le moment");

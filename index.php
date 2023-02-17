@@ -11,30 +11,24 @@ require('controller/controller.php');
     
             if($_GET['page'] == 'accueil') {
 
+                home();
+                
+            }
+            else if ($_GET['page'] == 'article') {
+
                 if (isset($_POST['titre']) && !empty($_POST['message'])) {
                     addArticle(htmlspecialchars($_POST['titre']), htmlspecialchars($_POST['message']));
                 } 
                 
-                else{
-                    home();
-                }
-            }
-            else if ($_GET['page'] == 'article') {
-                
-                if(isset($_POST['delete'])) {
+                else if(isset($_POST['delete'])) {
                     removeArticle($id);
                 }
-                else if(isset($_POST['upgrade'])) {
-                    getArticle();
-                }
-                else if(isset($_POST['update'])) {
-                    changeArticle($titre, $message, $id);
+                else if (isset($_POST['titre']) && !empty($_POST['message'])) {
+                    changeArticle(htmlspecialchars($_POST['titre']), htmlspecialchars($_POST['message']), $id);
                 }
                 else {
                    article(); 
                 }
-                
-
             }
             else {
                throw new Exception("Cette page n'existe pas ou à été supprimée.");

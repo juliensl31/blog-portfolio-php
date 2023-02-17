@@ -11,7 +11,7 @@ ob_start();
 <section class="container">
     <h1 class="text-light pt-5 text-decoration-underline"> AJOUTER UN ARTICLE</h1>
     
-    <form action="../index.php?page=accueil" method="post">
+    <form action="../index.php?page=article" method="post">
         <p>
             <label for="titre" class="text-light mb-2 fw-bold h3">Titre</label><br>
             <input class="rounded w-50 border-0 p-2" type="text" name="titre" id="titre">
