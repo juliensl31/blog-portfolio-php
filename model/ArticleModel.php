@@ -22,7 +22,16 @@ class ArticleModel extends Manager {
         $requete = $bdd->query('SELECT * FROM article ORDER BY created_date DESC LIMIT 0, 3'); 
 
         return $requete;
-    }  
+    }
+    
+    public function retrieveArticle() {
+        
+        $id = $_GET['id'];
+        $bdd = $this->connection();
+        $requete = $bdd->query("SELECT * FROM article WHERE id = '$id'");
+
+        return $requete;
+    }
 
 
     public function postArticle($titre, $message) {
@@ -34,13 +43,15 @@ class ArticleModel extends Manager {
         return $result;
     }
 
-    public function updateArticle($titre, $message) {
+    public function updateArticle($newTitre, $newMessage) {
         $bdd = $this->connection();
-        $id = $_GET['id'];
-        $requete = $bdd->prepare("UPDATE article SET title = :newTitle, content = , :newContent  WHERE id = :id");
+        $id = $_POST['id'];
+        $newTitre = $_POST['title'];
+        $newMessage = $_POST['content'];
+        $requete = $bdd->prepare("UPDATE article SET title = :newTitle, content = :newContent  WHERE id = :id");
         $result = $requete->execute([
-            'newTitle'      => $titre,
-            'newContent'    => $message,
+            'newTitle'      => $newTitre,
+            'newContent'    => $newMessage,
             'id'            => $id
         ]);
 

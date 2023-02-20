@@ -13,23 +13,29 @@ require('controller/controller.php');
 
                 home();
                 
-            }
-            else if ($_GET['page'] == 'article') {
+                }
+                else if ($_GET['page'] == 'article') {
 
-                if (isset($_POST['titre']) && !empty($_POST['message'])) {
-                    addArticle(htmlspecialchars($_POST['titre']), htmlspecialchars($_POST['message']));
-                } 
-                
-                else if(isset($_POST['delete'])) {
-                    removeArticle($id);
+                    if (isset($_POST['titre']) && !empty($_POST['message'])) {
+                        addArticle(htmlspecialchars($_POST['titre']), htmlspecialchars($_POST['message']));
+                    } 
+                    else if(isset($_POST['delete'])) {
+                        removeArticle($id);
+                    }
+                    else {
+                    article(); 
+                    }
                 }
-                else if (isset($_POST['titre']) && !empty($_POST['message'])) {
-                    changeArticle(htmlspecialchars($_POST['titre']), htmlspecialchars($_POST['message']), $id);
+                else if($_GET['page'] == 'update'){
+
+                    if (isset($_POST['update']) && isset($_POST['newTitre']) && isset($_POST['newMessage']) && is_int($_GET['id'])) {
+                        changeArticle(htmlspecialchars($_POST['newTitre']), htmlspecialchars($_POST['newMessage']));
+                    }
+                    else {
+                    updatingArticle();  
+                    }
+                    
                 }
-                else {
-                   article(); 
-                }
-            }
             else {
                throw new Exception("Cette page n'existe pas ou à été supprimée.");
             }

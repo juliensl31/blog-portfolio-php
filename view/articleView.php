@@ -29,9 +29,10 @@ ob_start();
                             <p class="card-text text-end"><?= $date ?></p>
                         </div>
                         <div class="card-footer text-end">
-                            <form method="post" action="index.php?page=article" class="d-inline" >
+                            <form method="post" action="index.php?page=update" class="d-inline" >
                                 <button class="bg-info text-light fw-bold border-0 p-3 rounded mb-2 text-uppercase" name="upgrade" type="submit">
-                                    <a href="view/updateView.php?id=<?php echo $id;?>&title=<?php echo $titre;?>&content=<?php echo $message;?>" class="text-light text-decoration-none">Modifier</a> 
+                                    <a href="index.php?page=update&id=<?php echo $id;?>"
+                                     class="text-light text-decoration-none">Modifier</a> 
                                 </button>
                             </form>
                             <form method="post" action="index.php?page=article" class="d-inline" >

@@ -18,6 +18,13 @@ function article() {
     require('view/articleView.php');
 }
 
+function updatingArticle() {
+    $articleModel = new ArticleModel();
+    $requete = $articleModel->retrieveArticle();
+
+    require('view/updateView.php'); 
+}
+
 function addArticle($titre, $message) {
     $articleModel = new ArticleModel;
     $result = $articleModel->postArticle($titre, $message);
@@ -44,12 +51,12 @@ function addArticle($titre, $message) {
     }
  }
 
- function changeArticle($titre, $message){
+ function changeArticle($newTitre, $newMessage){
     $articleModel = new ArticleModel;
-    $result = $articleModel->updateArticle($titre, $message);
+    $result = $articleModel->updateArticle($newTitre, $newMessage);
 
     if($result === false) {
-        throw new Exception("Impossible de supprimer votre article pour le moment");
+        throw new Exception("Impossible de modifier votre article pour le moment");
     }
     else {
         header('location: index.php?page=article');
