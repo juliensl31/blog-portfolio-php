@@ -6,7 +6,7 @@ ob_start();
 ?>
 
 
-<section class="container">
+<section class="container ">
 
     <h1 class="text-warning mt-5 text-decoration-underline">ARTICLES</h1> 
     <p class="m-4"><a href="view/postArticleView.php" class="text-light text-decoration-none">Ajouter un article</a></p>

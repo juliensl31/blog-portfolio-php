@@ -17,31 +17,41 @@
 </head>
 
 <body>
-    <nav class="navbar bg-dark navbar-dark navbar-expand-md sticky-top">
-        <div class="container">
-            <div class="navbar-brand "><a href="index.php" class="text-light text-decoration-none">Blog / Portfolio</a></div>
-            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarText">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="text-end">
-                <div id="navbarText" class="collapse navbar-collapse">
-                    <ul class="navbar-nav">
-                        <?php if (!isset($_SESSION['connect'])) { ?>
-                        <li class="nav-item">
-                            <a href="view/connectionView.php" class="nav-link">Connexion</a>
-                        </li>
-                        <?php } else if (isset($_SESSION['connect'])){ ?>
-                        <li class="nav-item">
-                            <a href="src/logout.php" class="nav-link">Déconnexion</a>
-                        </li>
-                        <?php } ?>
-                    </ul>
+    
+    <header>
+        <nav class="navbar bg-dark navbar-dark navbar-expand-md sticky-top">
+            <div class="container">
+                <div class="navbar-brand "><a href="index.php" class="text-light text-decoration-none">Blog / Portfolio</a></div>
+                <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarText">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="text-end">
+                    <div id="navbarText" class="collapse navbar-collapse">
+                        <ul class="navbar-nav">
+                            <?php if (!isset($_SESSION['connect'])) { ?>
+                            <li class="nav-item">
+                                <a href="view/connectionView.php" class="nav-link">Connexion</a>
+                            </li>
+                            <?php } else if (isset($_SESSION['connect'])){ ?>
+                            <li class="nav-item">
+                                <a href="src/logout.php" class="nav-link">Déconnexion</a>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </header>
+
     <?= $content ?>
+
+    <footer class="bg-dark p-4">
+        <p class="text-center pt-2"><a href="http://jslcode.com/" class="text-light text-decoration-none h3 "> © 2023 JSL CODE</a></p>
+    </footer>
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+
 </body>
 
 </html>

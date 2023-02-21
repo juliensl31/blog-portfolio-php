@@ -4,7 +4,7 @@
     ob_start();
 ?>
     
-<section class="container">
+<section class="container vh-100">
         
     <h1>OUPS !!</h1>
     <p><?= $error ?></p>
