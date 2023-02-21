@@ -45,15 +45,11 @@ class ArticleModel extends Manager {
 
     public function updateArticle($newTitre, $newMessage) {
         $bdd = $this->connection();
-        $id = $_POST['id'];
-        $newTitre = $_POST['title'];
-        $newMessage = $_POST['content'];
-        $requete = $bdd->prepare("UPDATE article SET title = :newTitle, content = :newContent  WHERE id = :id");
-        $result = $requete->execute([
-            'newTitle'      => $newTitre,
-            'newContent'    => $newMessage,
-            'id'            => $id
-        ]);
+        $id = $_GET['id'];
+        $newTitre = htmlspecialchars($_POST['newTitre']);
+        $newMessage = htmlspecialchars($_POST['newMessage']);
+        $requete = $bdd->prepare("UPDATE article SET title = ?, content = ?  WHERE id = ?");
+        $result = $requete->execute([$newTitre, $newMessage, $id]);
 
         return $result;
     }

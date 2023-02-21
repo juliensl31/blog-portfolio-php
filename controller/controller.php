@@ -18,6 +18,13 @@ function article() {
     require('view/articleView.php');
 }
 
+function admin() {
+    $articleModel = new ArticleModel();
+    $requete = $articleModel->getArticle();
+
+    require('view/adminView.php');
+}
+
 function updatingArticle() {
     $articleModel = new ArticleModel();
     $requete = $articleModel->retrieveArticle();
@@ -33,7 +40,7 @@ function addArticle($titre, $message) {
         throw new Exception("Impossible d'ajouter votre article pour le moment");
     }
     else {
-        header('location: index.php?page=article');
+        header('location: index.php?page=admin');
         exit();
     }
  }
@@ -46,7 +53,7 @@ function addArticle($titre, $message) {
         throw new Exception("Impossible de supprimer votre article pour le moment");
     }
     else {
-        header('location: index.php?page=article');
+        header('location: index.php?page=admin');
         exit();
     }
  }
@@ -59,7 +66,7 @@ function addArticle($titre, $message) {
         throw new Exception("Impossible de modifier votre article pour le moment");
     }
     else {
-        header('location: index.php?page=article');
+        header('location: index.php?page=admin');
         exit();
     }
  }

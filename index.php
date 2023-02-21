@@ -14,7 +14,7 @@ require('controller/controller.php');
                 home();
                 
                 }
-                else if ($_GET['page'] == 'article') {
+                else if ($_GET['page'] == 'admin') {
 
                     if (isset($_POST['titre']) && !empty($_POST['message'])) {
                         addArticle(htmlspecialchars($_POST['titre']), htmlspecialchars($_POST['message']));
@@ -23,18 +23,23 @@ require('controller/controller.php');
                         removeArticle($id);
                     }
                     else {
-                    article(); 
+                        
+                        admin();
+        
                     }
                 }
                 else if($_GET['page'] == 'update'){
 
-                    if (isset($_POST['update']) && isset($_POST['newTitre']) && isset($_POST['newMessage']) && is_int($_GET['id'])) {
+                    updatingArticle();  
+                    
+                    if (isset($_POST['update'])) {
                         changeArticle(htmlspecialchars($_POST['newTitre']), htmlspecialchars($_POST['newMessage']));
                     }
-                    else {
-                    updatingArticle();  
-                    }
-                    
+                }
+                else if($_GET['page'] == 'article'){
+
+                      article();
+                
                 }
             else {
                throw new Exception("Cette page n'existe pas ou à été supprimée.");

