@@ -1,12 +1,17 @@
 <?php
 
 use BLOG\Article\ArticleModel;
+use BLOG\Project\ProjectModel;
 
 require_once('model/ArticleModel.php');
+require_once('model/ProjectModel.php');
 
 function home() {
     $articleModel = new ArticleModel();
     $requete = $articleModel->getLastArticle();
+    
+    $projectModel = new ProjectModel();
+    $req = $projectModel->getLastProject();
 
     require('view/homeView.php');
 }
@@ -18,9 +23,19 @@ function article() {
     require('view/articleView.php');
 }
 
+function projet() {
+    $projectModel = new ProjectModel();
+    $requete = $projectModel->getProject();
+
+    require('view/projectView.php');
+}
+
 function admin() {
     $articleModel = new ArticleModel();
     $requete = $articleModel->getArticle();
+
+    $projectModel = new ProjectModel();
+    $req = $projectModel->getProject();
 
     require('view/adminView.php');
 }
@@ -38,6 +53,19 @@ function addArticle($titre, $message) {
 
     if($result === false) {
         throw new Exception("Impossible d'ajouter votre article pour le moment");
+    }
+    else {
+        header('location: index.php?page=admin');
+        exit();
+    }
+ }
+
+ function addProject($titre_projet, $message_projet) {
+    $projectModel = new ProjectModel();
+    $result = $projectModel->postProject($titre_projet, $message_projet);
+
+    if($result === false) {
+        throw new Exception("Impossible d'ajouter votre projet pour le moment");
     }
     else {
         header('location: index.php?page=admin');

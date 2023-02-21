@@ -31,7 +31,7 @@ ob_start();
     <div>
         <h1 class="text-warning mt-5 text-decoration-underline">PROJET</h1>
         <div id="card">
-            <?php while ($projet = $requete->fetch()) { ?>
+            <?php while ($projet = $req->fetch()) { ?>
                 <div class="row">
                     <div class="col mb-3">
                         <div class="card border-dark bg-light text-dark h-100">

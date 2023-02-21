@@ -16,11 +16,17 @@ try {
         } else if ($_GET['page'] == 'admin') {
 
             if (isset($_POST['titre']) && !empty($_POST['message'])) {
-
-                
+   
                 addArticle(htmlspecialchars($_POST['titre']), htmlspecialchars($_POST['message']));
+                
+                addProject(htmlspecialchars($_POST['titre_projet']), htmlspecialchars($_POST['message_projet']));
             
-            } else if (isset($_POST['delete'])) {
+
+            }else if(isset($_POST['titre_projet']) && !empty($_POST['message_projet'])) {
+
+                addProject(htmlspecialchars($_POST['titre_projet']), htmlspecialchars($_POST['message_projet']));
+
+            }else if (isset($_POST['delete'])) {
                
                 removeArticle($id);
             
@@ -39,6 +45,10 @@ try {
         } else if ($_GET['page'] == 'article') {
 
             article();
+
+        } else if ($_GET['page'] == 'projet') {
+
+            projet();
 
         } else {
 
