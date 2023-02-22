@@ -54,6 +54,20 @@ function updatingProject() {
     require('view/updateProjectView.php'); 
 }
 
+function viewArticle() {
+    $articleModel = new ArticleModel();
+    $requete = $articleModel->retrieveArticle();
+
+    require('view/articleView.php'); 
+}
+
+function viewProject() {
+    $projectModel = new ProjectModel();
+    $req = $projectModel->retrieveProject();
+
+    require('view/projectView.php'); 
+}
+
 function addArticle($titre, $message) {
     $articleModel = new ArticleModel;
     $result = $articleModel->postArticle($titre, $message);

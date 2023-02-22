@@ -1,5 +1,5 @@
 <?php
-$title = "Archive Projet";
+$title = "Projet";
 
 ob_start();
 
@@ -11,7 +11,7 @@ ob_start();
     <p class="m-4"><a href="index.php" class="text-light text-decoration-none">Retour à l'accueil</a></p>
 
     <div id="card">
-        <?php while ($projet = $requete->fetch()) {
+        <?php while ($projet = $req->fetch()) {
 
             $id = $projet['id'];
             $titre_projet = $projet['title'];
@@ -29,11 +29,6 @@ ob_start();
                         </div>
                         <div class="card-footer text-end">
                             <p class="card-text text-end"><?= $date ?></p>
-                            <form method="post" action="index.php?page=projet" class="text-end">
-                                <button class="bg-info text-light fw-bold border-0 p-3 rounded mb-2 text-uppercase" name="upgrade" type="submit">
-                                    <a href="index.php?page=projet&id=<?php echo $id; ?>" class="text-light text-decoration-none">Voir le projet</a>
-                                </button>
-                            </form>
                         </div>
                     </div>
                 </div>

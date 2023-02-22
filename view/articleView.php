@@ -1,11 +1,13 @@
 <?php
-$title = "Archive Article";
+$title = "Article";
 
 ob_start();
  
 ?>
 
-
+<section>
+    
+</section>
 <section class="container mb-5">
 
     <h1 class="text-warning mt-5 text-decoration-underline">ARTICLES</h1> 
@@ -30,11 +32,6 @@ ob_start();
                         </div>
                         <div class="card-footer text-end">
                             <p class="card-text text-end"><?= $date ?></p>
-                            <form method="post" action="index.php?page=article" class="text-end">
-                                <button class="bg-info text-light fw-bold border-0 p-3 rounded mb-2 text-uppercase" name="upgrade" type="submit">
-                                    <a href="index.php?page=article&id=<?php echo $id; ?>" class="text-light text-decoration-none">Voir Article</a>
-                                </button>
-                            </form>
                         </div>
                     </div>
                 </div>

@@ -55,13 +55,21 @@ try {
                 changeProject(htmlspecialchars($_POST['newTitreProjet']), htmlspecialchars($_POST['newMessageProjet']));
             }
 
-        } else if ($_GET['page'] == 'article') {
+        } else if ($_GET['page'] == 'archive-article') {
 
             archiveArticle();
 
-        } else if ($_GET['page'] == 'projet') {
+        } else if ($_GET['page'] == 'archive-projet') {
 
             archiveProjet();
+
+        } else if($_GET['page'] == 'article') {
+
+            viewArticle();
+
+        } else if(($_GET['page'] == 'projet')) {
+
+            viewProject();
 
         } else {
 
