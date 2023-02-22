@@ -19,36 +19,49 @@ try {
    
                 addArticle(htmlspecialchars($_POST['titre']), htmlspecialchars($_POST['message']));
                 
-                addProject(htmlspecialchars($_POST['titre_projet']), htmlspecialchars($_POST['message_projet']));
             
-
-            }else if(isset($_POST['titre_projet']) && !empty($_POST['message_projet'])) {
+            } else if(isset($_POST['titre_projet']) && !empty($_POST['message_projet'])) {
 
                 addProject(htmlspecialchars($_POST['titre_projet']), htmlspecialchars($_POST['message_projet']));
 
-            }else if (isset($_POST['delete'])) {
+            } else if (isset($_POST['delete'])) {
                
                 removeArticle($id);
-            
+
+            } else if(isset($_POST['delete_project'])) {
+
+                removeProject($id_projet);
+
             } else {
 
                 admin();
             }
+
         } else if ($_GET['page'] == 'update') {
 
-            updatingArticle();
-
+                updatingArticle();
+            
             if (isset($_POST['update'])) {
 
                 changeArticle(htmlspecialchars($_POST['newTitre']), htmlspecialchars($_POST['newMessage']));
             }
+
+        } else if ($_GET['page'] == 'update_project') {
+
+                updatingProject();
+            
+            if (isset($_POST['update_project'])) {
+
+                changeProject(htmlspecialchars($_POST['newTitreProjet']), htmlspecialchars($_POST['newMessageProjet']));
+            }
+
         } else if ($_GET['page'] == 'article') {
 
-            article();
+            archiveArticle();
 
         } else if ($_GET['page'] == 'projet') {
 
-            projet();
+            archiveProjet();
 
         } else {
 

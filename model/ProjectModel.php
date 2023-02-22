@@ -26,9 +26,9 @@ class ProjectModel extends Manager {
     
     public function retrieveProject() {
         
-        $id = $_GET['id'];
+        $id_projet = $_GET['id'];
         $bdd = $this->connection();
-        $requete = $bdd->query("SELECT * FROM project WHERE id = '$id'");
+        $requete = $bdd->query("SELECT * FROM project WHERE id = '$id_projet'");
 
         return $requete;
     }
@@ -43,23 +43,23 @@ class ProjectModel extends Manager {
         return $result;
     }
 
-    public function updateProject($newTitre, $newMessage) {
+    public function updateProject($newTitre_projet, $newMessage_projet) {
         $bdd = $this->connection();
         $id = $_GET['id'];
-        $newTitre = htmlspecialchars($_POST['newTitre']);
-        $newMessage = htmlspecialchars($_POST['newMessage']);
+        $newTitre_projet = htmlspecialchars($_POST['newTitreProjet']);
+        $newMessage_projet = htmlspecialchars($_POST['newMessageProjet']);
         $requete = $bdd->prepare("UPDATE project SET title = ?, content = ?  WHERE id = ?");
-        $result = $requete->execute([$newTitre, $newMessage, $id]);
+        $result = $requete->execute([$newTitre_projet, $newMessage_projet, $id]);
 
         return $result;
     }
    
     public function deleteProject() {
-        $id = $_POST['id'];
+        $id_projet = $_POST['id'];
         $bdd = $this->connection();
         $requete = $bdd->prepare('DELETE FROM project WHERE id = :id');
         $result = $requete->execute([
-            'id' => $id
+            'id' => $id_projet
         ]);
 
         return $result;

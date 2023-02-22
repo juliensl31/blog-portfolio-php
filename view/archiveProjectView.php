@@ -24,7 +24,7 @@ ob_start();
                     <div class="card border-dark bg-light text-dark h-100">
                         <div class="card-header fw-bold">Projet</div>
                         <div class="card-body">
-                            <h5 class="card-title"><?= $titre_projet ?></h5>
+                            <h5 class="card-title text-warning fw-bold text-capitalize"><?= $titre_projet ?></h5>
                             <p class="card-text"><?= $message_projet ?></p>
                         </div>
                         <div class="card-footer text-end">

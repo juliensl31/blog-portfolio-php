@@ -4,7 +4,7 @@ $title = "Accueil";
 ob_start();
 ?>
 
-<section class="container vh-100">
+<section class="container min-vh-100">
     <div>
         <h1 class="text-warning mt-5 text-decoration-underline">ARTICLE</h1>
         <div id="card">
@@ -13,8 +13,10 @@ ob_start();
                     <div class="col mb-3">
                         <div class="card border-dark bg-light text-dark h-100">
                             <div class="card-header fw-bold">Blog</div>
+                            <img src="https://i.scdn.co/image/ab67616d00001e02a2d3eefa2b2e34848fe1cfdc" class="card-img-top"
+                        alt="red-notice">
                             <div class="card-body">
-                                <h5 class="card-title"><?= $article['title'] ?></h5>
+                                <h5 class="card-title text-warning fw-bold text-capitalize"><?= $article['title'] ?></h5>
                                 <p class="card-text"><?= $article['content'] ?></p>
                             </div>
                             <div class="card-footer">
@@ -36,8 +38,10 @@ ob_start();
                     <div class="col mb-3">
                         <div class="card border-dark bg-light text-dark h-100">
                             <div class="card-header fw-bold">Blog</div>
+                            <img src="https://i.scdn.co/image/ab67616d00001e02a2d3eefa2b2e34848fe1cfdc" class="card-img-top"
+                        alt="red-notice">
                             <div class="card-body">
-                                <h5 class="card-title"><?= $projet['title'] ?></h5>
+                                <h5 class="card-title text-warning fw-bold text-capitalize"><?= $projet['title'] ?></h5>
                                 <p class="card-text"><?= $projet['content'] ?></p>
                             </div>
                             <div class="card-footer">

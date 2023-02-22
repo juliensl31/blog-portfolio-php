@@ -16,18 +16,18 @@ function home() {
     require('view/homeView.php');
 }
 
-function article() {
+function archiveArticle() {
     $articleModel = new ArticleModel();
     $requete = $articleModel->getArticle();
 
-    require('view/articleView.php');
+    require('view/archiveArticleView.php');
 }
 
-function projet() {
+function archiveProjet() {
     $projectModel = new ProjectModel();
     $requete = $projectModel->getProject();
 
-    require('view/projectView.php');
+    require('view/archiveProjectView.php');
 }
 
 function admin() {
@@ -44,7 +44,14 @@ function updatingArticle() {
     $articleModel = new ArticleModel();
     $requete = $articleModel->retrieveArticle();
 
-    require('view/updateView.php'); 
+    require('view/updateArticleView.php'); 
+}
+
+function updatingProject() {
+    $projectModel = new ProjectModel();
+    $req = $projectModel->retrieveProject();
+
+    require('view/updateProjectView.php'); 
 }
 
 function addArticle($titre, $message) {
@@ -73,6 +80,32 @@ function addArticle($titre, $message) {
     }
  }
 
+ function changeArticle($newTitre, $newMessage){
+    $articleModel = new ArticleModel;
+    $result = $articleModel->updateArticle($newTitre, $newMessage);
+
+    if($result === false) {
+        throw new Exception("Impossible de modifier votre article pour le moment");
+    }
+    else {
+        header('location: index.php?page=admin');
+        exit();
+    }
+ }
+
+ function changeProject($newTitre_projet, $newMessage_projet){
+    $projectModel = new ProjectModel;
+    $result = $projectModel->updateProject($newTitre_projet, $newMessage_projet);
+
+    if($result === false) {
+        throw new Exception("Impossible de modifier votre projet pour le moment");
+    }
+    else {
+        header('location: index.php?page=admin');
+        exit();
+    }
+ }
+ 
  function removeArticle(){
     $articleModel = new ArticleModel;
     $result = $articleModel->deleteArticle();
@@ -86,12 +119,12 @@ function addArticle($titre, $message) {
     }
  }
 
- function changeArticle($newTitre, $newMessage){
-    $articleModel = new ArticleModel;
-    $result = $articleModel->updateArticle($newTitre, $newMessage);
+ function removeProject(){
+    $projectModel = new ProjectModel;
+    $result = $projectModel->deleteProject();
 
     if($result === false) {
-        throw new Exception("Impossible de modifier votre article pour le moment");
+        throw new Exception("Impossible de supprimer votre projet pour le moment");
     }
     else {
         header('location: index.php?page=admin');
