@@ -15,7 +15,7 @@ ob_start();
 
             $id_projet      = $projet['id'];
             $titre_projet   = $projet['title'];
-            $message_projet = html_entity_decode($projet['content']);
+            $content_projet = html_entity_decode($projet['content']);
             $date_projet    = new DateTime($projet['created_date']);
 
         ?>
@@ -27,7 +27,7 @@ ob_start();
                         <div class="card-body">
                             <small><?= $date_projet->format('d-m-Y H:i'); ?></small>
                             <h5 class="card-title text-warning fw-bold text-capitalize"><?= $titre_projet ?></h5>
-                            <p class="card-text"><?= substr($message_projet, 0, 200); ?> ...</p>
+                            <p class="card-text"><?= substr($content_projet, 0, 200); ?> ...</p>
                         </div>
                         <div class="card-footer text-end">
                             <form method="post" action="index.php?page=projet" class="text-end">
