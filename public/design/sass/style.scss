@@ -22,10 +22,10 @@ a:hover {
 	text-decoration: underline !important;
 }
 
-h1 {
-	font-size: 2em;
-	margin: 0 0 30px 0;
-}
+// h1 {
+// 	font-size: 2em;
+// 	margin: 0 0 30px 0;
+// }
 
 input[type="email"], input[type="password"] {
 	padding: 15px;
@@ -34,10 +34,13 @@ input[type="email"], input[type="password"] {
 	border: 0;
 	border-radius: 5px;
 	color: white;
-	background-color: #2A4E5A;
+	background-color: #2a4e5ab6;
 	margin-bottom: 15px;
 }
 
+// p {
+// 	color: #f8efef;
+// }
 
 #login-body {
 	max-width: 450px;
@@ -72,12 +75,13 @@ input[type="email"], input[type="password"] {
     height: calc(100vh - 50px);
 }
 
-.gauche-presentation {
+.titre {
     width: 50%;
 }
-.gauche-presentation h1 {
+.titre h1 {
     font-size: 3em;
     margin: 0;
+	text-transform: uppercase;
 }
 .container {
 	// width: 1000px;

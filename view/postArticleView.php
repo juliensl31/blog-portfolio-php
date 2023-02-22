@@ -9,7 +9,7 @@ ob_start();
 ?>
 <section id="background">
 <section class="container">
-    <h1 class="text-light pt-5 text-decoration-underline"> AJOUTER UN ARTICLE</h1>
+    <h1 class="pt-5 text-decoration-underline mb-5 text-warning"> AJOUTER UN ARTICLE</h1>
     
     <form action="../index.php?page=admin" method="post">
         <p>
@@ -21,7 +21,7 @@ ob_start();
             <textarea name="message" id="default"></textarea>
         </p>
         <p>
-            <button type="submit" class="bg-info text-light fw-bold border-0 w-100 p-3 rounded mb-2 text-uppercase">Ajouter un article</button>
+            <button type="submit" class="bg-info text-light fw-bold border-0 w-100 p-3 rounded mb-5 text-uppercase">Ajouter un article</button>
         </p>
     </form>
 </section>

@@ -46,7 +46,7 @@
 
     <?= $content ?>
 
-    <footer class="bg-dark p-4">
+    <footer class="bg-dark p-2">
         <p class="text-center pt-2"><a href="http://jslcode.com/" class="text-light text-decoration-none h3 "> © 2023 JSL CODE</a></p>
     </footer>
 

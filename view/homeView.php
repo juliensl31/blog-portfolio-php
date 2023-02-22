@@ -6,23 +6,30 @@ ob_start();
 
 <section class="container min-vh-100">
     <div>
-        <h1 class="text-warning mt-5 text-decoration-underline">ARTICLE</h1>
+        <h1 class="text-warning mt-5 mb-4 text-decoration-underline">BLOG</h1>
         <div id="card">
-            <?php while ($article = $requete->fetch()) { ?>
+            <?php while ($article = $requete->fetch()) { 
+                
+                $id_article = $article['id'];
+                $titre_article = $article['title'];
+                $content_article = html_entity_decode($article['content']);
+                $date_article = new DateTime($article['created_date']);
+                
+            ?>
                 <div class="row">
                     <div class="col mb-3">
                         <div class="card border-dark bg-light text-dark h-100">
                             <div class="card-header fw-bold">Blog</div>
                             <img src="public/assets/blog.jpg" class="card-img-top" alt="blog">
                             <div class="card-body">
-                                <h5 class="card-title text-warning fw-bold text-capitalize"><?= $article['title'] ?></h5>
-                                <p class="card-text"><?= html_entity_decode($article['content'])  ?></p>
+                                <small><?= $date_article->format('d-m-Y H:i'); ?></small>
+                                <h5 class="card-title text-warning fw-bold text-capitalize mt-2"><?= $titre_article ?></h5>
+                                <p class="card-text"><?= substr($content_article, 0, 200); ?> ...</p>
                             </div>
                             <div class="card-footer">
-                                <p class="card-text text-end"><?= $article['created_date'] ?></p>
                                 <form method="post" action="index.php?page=article" class="text-end">
                                 <button class="bg-info text-light fw-bold border-0 p-3 rounded mb-2 text-uppercase" name="upgrade" type="submit">
-                                    <a href="index.php?page=article&id=<?php echo $article['id']; ?>" class="text-light text-decoration-none">Voir Article</a>
+                                    <a href="index.php?page=article&id=<?php echo $id_article; ?>" class="text-light text-decoration-none">Voir plus</a>
                                 </button>
                             </form>
                             </div>
@@ -35,23 +42,30 @@ ob_start();
     </div>
 
     <div>
-        <h1 class="text-warning mt-5 text-decoration-underline">PROJET</h1>
+        <h1 class="text-warning mt-5 mb-4 text-decoration-underline">PROJET</h1>
         <div id="card">
-            <?php while ($projet = $req->fetch()) { ?>
+            <?php while ($projet = $req->fetch()) {
+                
+                $id_projet = $projet['id'];
+                $titre_projet = $projet['title'];
+                $content_projet = html_entity_decode($projet['content']);
+                $date_projet = new DateTime($projet['created_date']);
+                
+            ?>
                 <div class="row">
                     <div class="col mb-3">
                         <div class="card border-dark bg-light text-dark h-100">
                             <div class="card-header fw-bold">Projet</div>
                             <img src="public/assets/data.jpg" class="card-img-top" alt="data">
                             <div class="card-body">
-                                <h5 class="card-title text-warning fw-bold text-capitalize"><?= $projet['title'] ?></h5>
-                                <p class="card-text"><?= html_entity_decode($projet['content'])  ?></p>
+                                <small><?= $date_projet->format('d-m-Y H:i'); ?></small>
+                                <h5 class="card-title text-warning fw-bold text-capitalize mt-2"><?= $titre_projet ?></h5>
+                                <p class="card-text"><?= substr($content_projet, 0, 200);?> ...</p>
                             </div>
                             <div class="card-footer">
-                                <p class="card-text text-end"><?= $projet['created_date'] ?></p>
                                 <form method="post" action="index.php?page=projet" class="text-end">
                                 <button class="bg-info text-light fw-bold border-0 p-3 rounded mb-2 text-uppercase" name="upgrade" type="submit">
-                                    <a href="index.php?page=projet&id=<?php echo $projet['id']; ?>" class="text-light text-decoration-none">Voir le projet</a>
+                                    <a href="index.php?page=projet&id=<?php echo $id_projet; ?>" class="text-light text-decoration-none">Voir plus</a>
                                 </button>
                             </form>
                             </div>
