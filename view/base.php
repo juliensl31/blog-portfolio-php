@@ -10,14 +10,14 @@
     <script src="https://cdn.tiny.cloud/1/vmzf778o0oenm6a4iu7s93p4am2rqkrfulgd9c8hjbv95nyz/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
         tinymce.init({
-            selector: '#mytextarea'
+            selector: 'textarea#default'
         });
     </script>
     <title><?= $title ?></title>
 </head>
 
 <body>
-    
+
     <header>
         <nav class="navbar bg-dark navbar-dark navbar-expand-md sticky-top">
             <div class="container">
@@ -29,13 +29,13 @@
                     <div id="navbarText" class="collapse navbar-collapse">
                         <ul class="navbar-nav">
                             <?php if (!isset($_SESSION['connect'])) { ?>
-                            <li class="nav-item">
-                                <a href="view/connectionView.php" class="nav-link">Connexion</a>
-                            </li>
-                            <?php } else if (isset($_SESSION['connect'])){ ?>
-                            <li class="nav-item">
-                                <a href="src/logout.php" class="nav-link">Déconnexion</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a href="view/connectionView.php" class="nav-link">Connexion</a>
+                                </li>
+                            <?php } else if (isset($_SESSION['connect'])) { ?>
+                                <li class="nav-item">
+                                    <a href="src/logout.php" class="nav-link">Déconnexion</a>
+                                </li>
                             <?php } ?>
                         </ul>
                     </div>

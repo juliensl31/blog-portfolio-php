@@ -16,7 +16,7 @@ ob_start();
                             <img src="public/assets/blog.jpg" class="card-img-top" alt="blog">
                             <div class="card-body">
                                 <h5 class="card-title text-warning fw-bold text-capitalize"><?= $article['title'] ?></h5>
-                                <p class="card-text"><?= $article['content'] ?></p>
+                                <p class="card-text"><?= html_entity_decode($article['content'])  ?></p>
                             </div>
                             <div class="card-footer">
                                 <p class="card-text text-end"><?= $article['created_date'] ?></p>
@@ -45,7 +45,7 @@ ob_start();
                             <img src="public/assets/data.jpg" class="card-img-top" alt="data">
                             <div class="card-body">
                                 <h5 class="card-title text-warning fw-bold text-capitalize"><?= $projet['title'] ?></h5>
-                                <p class="card-text"><?= $projet['content'] ?></p>
+                                <p class="card-text"><?= html_entity_decode($projet['content'])  ?></p>
                             </div>
                             <div class="card-footer">
                                 <p class="card-text text-end"><?= $projet['created_date'] ?></p>

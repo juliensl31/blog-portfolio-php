@@ -21,7 +21,7 @@ ob_start();
                 </p>
                 <p>
                     <label for="newMessage" class="text-light mb-2 fw-bold h3">Contenu</label><br>
-                    <textarea name="newMessage" id="mytextarea"><?php echo $article['content']; ?></textarea>
+                    <textarea name="newMessage" id="default"><?php echo $article['content']; ?></textarea>
                 </p>
                 <p>
                     <button type="submit" name="update" class="bg-info text-light fw-bold border-0 w-100 p-3 rounded mb-2 text-uppercase">Modifier</button>

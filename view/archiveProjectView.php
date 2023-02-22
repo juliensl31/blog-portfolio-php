@@ -15,7 +15,7 @@ ob_start();
 
             $id = $projet['id'];
             $titre_projet = $projet['title'];
-            $message_projet = $projet['content'];
+            $message_projet = html_entity_decode($projet['content']);
             $date = $projet['created_date'];
         ?>
             <div class="row">

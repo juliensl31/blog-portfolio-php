@@ -51,6 +51,34 @@ input[type="email"], input[type="password"] {
 	height: 100vh;
 }
 
+#article {
+    background: url('../../assets/points.png'), center url('../../assets/blog.jpg');
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#project {
+    background: url('../../assets/points.png'), center url('../../assets/data.jpg');
+    background-size: cover;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#flex-presentation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(100vh - 50px);
+}
+
+.gauche-presentation {
+    width: 50%;
+}
+.gauche-presentation h1 {
+    font-size: 3em;
+    margin: 0;
+}
 .container {
 	// width: 1000px;
 	margin: 0 auto;

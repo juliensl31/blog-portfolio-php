@@ -22,7 +22,7 @@ ob_start();
 
             $id = $article['id'];
             $titre = $article['title'];
-            $message = $article['content'];
+            $message = html_entity_decode($article['content']);
             $date = $article['created_date'];
         ?>
             <div class="row">
@@ -59,7 +59,7 @@ ob_start();
 
             $id_projet = $projet['id'];
             $titre_projet = $projet['title'];
-            $message_projet = $projet['content'];
+            $message_projet = html_entity_decode($projet['content']);
             $date_projet = $projet['created_date'];
         ?>
             <div class="row">

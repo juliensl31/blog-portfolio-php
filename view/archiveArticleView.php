@@ -16,7 +16,7 @@ ob_start();
 
             $id = $article['id'];
             $titre = $article['title'];
-            $message = $article['content'];
+            $message = html_entity_decode($article['content']); 
             $date = $article['created_date'];
         ?>
             <div class="row">
