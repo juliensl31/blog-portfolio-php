@@ -20,11 +20,11 @@ while ($article = $requete->fetch()) {
             </div>
         </div>
     </section>
-    <section class="container mb-5">
+    <section id="paragraphe" class="container text-center">
 
         <h2 class="text-warning mt-5 text-decoration-underline text-center mb-5">Article</h2>
-        <p class="text-light"><?= $content_article ?></p>
-        <p class="text-light text-end"><?= $date_article->format('d-m-Y H:i'); ?></p>
+        <p><?= $content_article ?></p>
+        <p class="text-end mb-5"><?= $date_article->format('d-m-Y H:i'); ?></p>
 
     </section>
 

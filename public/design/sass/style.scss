@@ -11,7 +11,7 @@
 
 body {
 	font-family: 'roboto';
-	background-color: #2a4e5a8e;
+	background-color: #EFF5F5;
 }
 
 * {
@@ -22,10 +22,6 @@ a:hover {
 	text-decoration: underline !important;
 }
 
-// h1 {
-// 	font-size: 2em;
-// 	margin: 0 0 30px 0;
-// }
 
 input[type="email"], input[type="password"] {
 	padding: 15px;
@@ -37,10 +33,6 @@ input[type="email"], input[type="password"] {
 	background-color: #2a4e5ab6;
 	margin-bottom: 15px;
 }
-
-// p {
-// 	color: #f8efef;
-// }
 
 #login-body {
 	max-width: 450px;
@@ -75,6 +67,19 @@ input[type="email"], input[type="password"] {
     height: calc(100vh - 50px);
 }
 
+#card {
+	display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: minmax(70px, auto);
+    grid-gap: 15px;
+    justify-content: center;
+}
+
+#paragraphe p {
+	color: #00425A !important;
+	text-align: justify;
+}
+
 .titre {
     width: 50%;
 }
@@ -83,18 +88,13 @@ input[type="email"], input[type="password"] {
     margin: 0;
 	text-transform: uppercase;
 }
+
+
+
 .container {
-	// width: 1000px;
+	width: 1500px;
 	margin: 0 auto;
 	
-}
-
-#card {
-	display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-auto-rows: minmax(70px, auto);
-    grid-gap: 15px;
-    justify-content: center;
 }
 
 @media all and (max-width: 1030px) {

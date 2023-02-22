@@ -7,8 +7,8 @@ ob_start();
 
 <section class="container mb-5">
 
-    <h1 class="text-warning mt-5 text-decoration-underline">PROJETS</h1>
-    <p class="m-4"><a href="index.php" class="text-light text-decoration-none">Retour à l'accueil</a></p>
+    <h1 class="text-info mt-5 text-decoration-underline">PROJETS</h1>
+    <p class="m-4"><a href="index.php" class="text-dark text-decoration-none">Retour à l'accueil</a></p>
 
     <div id="card">
         <?php while ($projet = $requete->fetch()) {
@@ -22,12 +22,12 @@ ob_start();
             <div class="row">
                 <div class="col mb-3">
                     <div class="card border-dark bg-light text-dark h-100">
-                        <div class="card-header fw-bold">Projet</div>
                         <img src="public/assets/data.jpg" class="card-img-top" alt="data">
+                        <div class="card-header fw-bold">Projet</div>
                         <div class="card-body">
                             <small><?= $date_projet->format('d-m-Y H:i'); ?></small>
-                            <h5 class="card-title text-warning fw-bold text-capitalize"><?= $titre_projet ?></h5>
-                            <p class="card-text"><?= substr($content_projet, 0, 200); ?> ...</p>
+                            <h5 class="card-title text-info fw-bold text-capitalize"><?= $titre_projet ?></h5>
+                            <p class="card-text text-justify"><?= substr($content_projet, 0, 200); ?> ...</p>
                         </div>
                         <div class="card-footer text-end">
                             <form method="post" action="index.php?page=projet" class="text-end">

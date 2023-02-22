@@ -15,16 +15,16 @@ while ($projet = $req->fetch()) {
         <div class="container">
             <div id="flex-presentation">
                 <div class="titre">
-                    <h1 class="text-warning fw-bolder"><?= $titre_projet ?></h1>
+                    <h1 class="text-info fw-bolder"><?= $titre_projet ?></h1>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="container m-5">
-        <h2 class="text-warning mt-5 text-decoration-underline text-center mb-5">Présentation</h2>
-        <p class="text-light "><?= $content_projet ?></p>
-        <p class="text-light text-end"><?= $date_projet->format('d-m-Y H:i'); ?></p>
+    <section id="paragraphe" class="container text-center">
+        <h2 class="text-info mt-5 text-decoration-underline text-center mb-5">Présentation</h2>
+        <p><?= $content_projet ?></p>
+        <p class="text-end mb-5"><?= $date_projet->format('d-m-Y H:i'); ?></p>
     </section>
 
 <?php
