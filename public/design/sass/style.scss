@@ -34,15 +34,6 @@ input[type="email"], input[type="password"] {
 	margin-bottom: 15px;
 }
 
-.divider {
-
-	border-top: 8px solid #F44212;
-	margin-left: 300px;
-	margin-right: 300px;
-	border-radius: 5px;
-	margin-top: 50px;
-
-}
 
 #login-body {
 	max-width: 450px;
@@ -91,6 +82,14 @@ input[type="email"], input[type="password"] {
 	margin-top: 50px;
 }
 
+.divider {
+	border-top: 8px solid #F44212;
+	margin-left: 300px;
+	margin-right: 300px;
+	border-radius: 5px;
+	margin-top: 50px;
+}
+
 .titre {
     width: 50%;
 }
@@ -100,10 +99,8 @@ input[type="email"], input[type="password"] {
 	text-transform: uppercase;
 }
 
-
-
 .container {
-	width: 1500px;
+	// width: 1500px;
 	margin: 0 auto;
 	
 }

@@ -65,12 +65,20 @@ try {
 
         } else if($_GET['page'] == 'article') {
 
+            if(isset($_POST['comment'])) {
+
+                addComment(htmlspecialchars($_POST['content']), htmlspecialchars($_POST['article_id']));
+
+            } else {
+
             viewArticle();
+            
+        }
 
         } else if(($_GET['page'] == 'projet')) {
-
+               
             viewProject();
-
+           
         } else {
 
             throw new Exception("Cette page n'existe pas ou à été supprimée.");

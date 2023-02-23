@@ -1,10 +1,12 @@
 <?php
 
 use BLOG\Article\ArticleModel;
+use BLOG\Comment\CommentModel;
 use BLOG\Project\ProjectModel;
 
 require_once('model/ArticleModel.php');
 require_once('model/ProjectModel.php');
+require_once('model/CommentModel.php');
 
 function home() {
     $articleModel = new ArticleModel();
@@ -58,6 +60,9 @@ function viewArticle() {
     $articleModel = new ArticleModel();
     $requete = $articleModel->retrieveArticle();
 
+    $commentModel = new CommentModel();
+    $req = $commentModel->getComment();
+
     require('view/articleView.php'); 
 }
 
@@ -90,6 +95,19 @@ function addArticle($titre, $message) {
     }
     else {
         header('location: index.php?page=admin');
+        exit();
+    }
+ }
+
+ function addComment($content, $article_id) {
+    $commentModel = new CommentModel();
+    $result = $commentModel->postComment($content, $article_id);
+
+    if($result === false) {
+        throw new Exception("Impossible d'ajouter votre commentaire pour le moment");
+    }
+    else {
+        header('location: index.php?page=archive-article');
         exit();
     }
  }
