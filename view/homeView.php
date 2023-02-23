@@ -48,6 +48,7 @@ ob_start();
                 
                 $id_projet = $projet['id'];
                 $titre_projet = $projet['title'];
+                $techno_projet  = $projet['techno'];
                 $content_projet = html_entity_decode($projet['content']);
                 $date_projet = new DateTime($projet['created_date']);
                 
@@ -58,9 +59,13 @@ ob_start();
                             <img src="public/assets/data.jpg" class="card-img-top" alt="data">
                             <div class="card-header fw-bold">Projet</div>
                             <div class="card-body">
-                                <small><?= $date_projet->format('d-m-Y H:i'); ?></small>
                                 <h5 class="card-title text-info fw-bold text-capitalize mt-2"><?= $titre_projet ?></h5>
+                                <h6 class="text-dark fw-bold text-capitalize">Technologie:</h6>
+                                <h6 class="text-info"><?= $techno_projet ?></h6>
                                 <p class="card-text text-justify"><?= substr($content_projet, 0, 200);?> ...</p>
+                            </div>
+                            <div class="text-end p-2">
+                                <small><?= $date_projet->format('d-m-Y H:i'); ?></small>
                             </div>
                             <div class="card-footer">
                                 <form method="post" action="index.php?page=projet" class="text-end">

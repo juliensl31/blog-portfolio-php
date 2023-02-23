@@ -21,7 +21,7 @@ ob_start();
             <textarea name="message" id="default"></textarea>
         </p>
         <p>
-            <button type="submit" class="bg-info text-light fw-bold border-0 w-100 p-3 rounded mb-5 text-uppercase">Ajouter un article</button>
+            <button type="submit" class="bg-warning text-light fw-bold border-0 w-100 p-3 rounded mb-5 text-uppercase">Ajouter un article</button>
         </p>
     </form>
 </section>

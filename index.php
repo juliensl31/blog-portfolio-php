@@ -22,7 +22,7 @@ try {
             
             } else if(isset($_POST['titre_projet']) && !empty($_POST['message_projet'])) {
 
-                addProject(htmlspecialchars($_POST['titre_projet']), htmlspecialchars($_POST['message_projet']));
+                addProject(htmlspecialchars_decode($_POST['titre_projet']), htmlspecialchars_decode($_POST['message_projet']), htmlspecialchars_decode($_POST['techno']));
 
             } else if (isset($_POST['delete'])) {
                

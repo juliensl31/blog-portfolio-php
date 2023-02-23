@@ -86,9 +86,9 @@ function addArticle($titre, $message) {
     }
  }
 
- function addProject($titre_projet, $message_projet) {
+ function addProject($titre_projet, $message_projet, $techno) {
     $projectModel = new ProjectModel();
-    $result = $projectModel->postProject($titre_projet, $message_projet);
+    $result = $projectModel->postProject($titre_projet, $message_projet, $techno);
 
     if($result === false) {
         throw new Exception("Impossible d'ajouter votre projet pour le moment");
@@ -107,7 +107,7 @@ function addArticle($titre, $message) {
         throw new Exception("Impossible d'ajouter votre commentaire pour le moment");
     }
     else {
-        header('location: index.php?page=archive-article');
+        header('location: index.php?page=article&id='.urldecode($article_id));
         exit();
     }
  }

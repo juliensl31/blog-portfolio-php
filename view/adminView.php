@@ -59,6 +59,7 @@ ob_start();
 
             $id_projet      = $projet['id'];
             $titre_projet   = $projet['title'];
+            $techno_projet  = $projet['techno'];
             $message_projet = html_entity_decode($projet['content']);
             $date_projet    = new DateTime($projet['created_date']);
 
@@ -68,9 +69,13 @@ ob_start();
                     <div class="card border-dark bg-light text-dark h-100">
                         <div class="card-header fw-bold">Projet</div>
                         <div class="card-body">
-                            <small><?= $date_projet->format('d-m-Y H:i'); ?></small>
                             <h5 class="card-title text-info fw-bold text-capitalize"><?= $titre_projet ?></h5>
+                            <h6 class="text-dark fw-bold text-capitalize">Technologie:</h6>
+                            <h6 class="text-info"><?= $techno_projet ?></h6>
                             <p class="card-text"><?= substr($message_projet, 0, 200); ?> ...</p>
+                            <div class="text-end p-2">
+                              <small><?= $date_projet->format('d-m-Y H:i'); ?></small>  
+                            </div>
                         </div>
                         <div class="card-footer text-end">
                             <form method="post" action="index.php?page=update_project" class="d-inline">

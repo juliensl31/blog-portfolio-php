@@ -17,6 +17,10 @@ ob_start();
             <input class="rounded w-50 border-0 p-2" type="text" name="titre_projet" id="titre">
         </p>
         <p>
+            <label for="techno" class="text-light mb-2 fw-bold h3">Technologie</label><br>
+            <input class="rounded w-50 border-0 p-2" type="text" name="techno" id="techno">
+        </p>
+        <p>
             <label for="message" class="text-light mb-2 fw-bold h3">Contenu</label><br>
             <textarea name="message_projet" id="default"></textarea>
         </p>

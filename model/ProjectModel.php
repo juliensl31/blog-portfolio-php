@@ -34,11 +34,11 @@ class ProjectModel extends Manager {
     }
 
 
-    public function postProject($titre_projet, $message_projet) {
+    public function postProject($titre_projet, $message_projet, $techno) {
 
         $bdd = $this->connection();
-        $requete = $bdd->prepare('INSERT INTO project(title, content) VALUES(?, ?)');
-        $result = $requete->execute([$titre_projet, $message_projet]);
+        $requete = $bdd->prepare('INSERT INTO project(title, content, techno) VALUES(?, ?, ?)');
+        $result = $requete->execute([$titre_projet, $message_projet, $techno]);
 
         return $result;
     }

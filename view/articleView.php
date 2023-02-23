@@ -52,7 +52,7 @@ while ($article = $requete->fetch()) {
         ?>
         <div class="bg-light shadow-sm p-1 rounded m-1 text-dark w-75">
             <p class="p-1"><?= $content_comment ?></p>
-            <p class="text-end p-1"><small><?= $date_comment->format('d/m/Y h:i') ?></small></p>
+            <p class="text-end p-1"><small><?= $date_comment->format('d/m/Y H:i') ?></small></p>
         </div>
         <?php }
         } ?>
@@ -61,7 +61,7 @@ while ($article = $requete->fetch()) {
 
     <form action="index.php?page=article&id=<?php echo $_GET['id'] ?>" method="post">
         <p>
-            <textarea name="content" id="default"></textarea>
+            <textarea name="content" id="default" placeholder="Ajouter un commentaire..."></textarea>
         </p>
         <?php if (!isset($_SESSION['connect'])) { ?>
         <p>
