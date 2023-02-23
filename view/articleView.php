@@ -21,11 +21,9 @@ while ($article = $requete->fetch()) {
         </div>
     </section>
     <section id="paragraphe" class="container text-center">
-
-        <h2 class="text-warning mt-5 text-decoration-underline text-center mb-5">Article</h2>
+        <hr class="divider">
         <p><?= $content_article ?></p>
         <p class="text-end mb-5"><?= $date_article->format('d-m-Y H:i'); ?></p>
-
     </section>
 
 <?php

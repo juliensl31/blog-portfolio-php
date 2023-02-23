@@ -11,7 +11,7 @@ ob_start();
 
 <section id="background">
     <section class="container">
-        <h1 class="text-light pt-5 text-decoration-underline"> MODIFIER UN PROJET</h1>
+        <h1 class="text-light pt-5 fw-bold mb-4"> MODIFIER UN PROJET</h1>
         <?php while ($projet = $req->fetch()) {?>
             <form action="index.php?page=update_project&id=<?php echo $_GET['id']?>" method="post"> 
                 <p>

@@ -110,8 +110,8 @@ ob_start();
 			} ?>
 
 			<form method="post" action="connectionView.php">
-				<input type="email" class="bg-dark" name="email" placeholder="Votre adresse email" required />
-				<input type="password" class="bg-dark" name="password" placeholder="Mot de passe" required />
+				<input type="email" name="email" placeholder="Votre adresse email" required />
+				<input type="password" name="password" placeholder="Mot de passe" required />
 				<button type="submit" class="bg-info text-light fw-bold border-0 w-100 p-3 rounded mb-2 text-uppercase">S'identifier</button>
 				<label id="option" class="text-warning mt-2 d-block fw-bold"><input class="m-2" type="checkbox" name="auto"/>Se souvenir de moi</label>
 			</form>
