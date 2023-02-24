@@ -81,12 +81,12 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
 
 ?>
 
-
 <?php
 $title = "Connexion";
 
 ob_start();
 ?>
+
 <section class="d-flex flex-grow-1" id="background">
 	<div id="login-body" class="p-5 mt-5 rounded text-light mx-auto my-auto bg-secondary bg-opacity-50">
 
@@ -116,11 +116,13 @@ ob_start();
 				<label id="option" class="text-warning mt-2 d-block fw-bold"><input class="m-2" type="checkbox" name="auto"/>Se souvenir de moi</label>
 			</form>
 
-
 			<p class="text-warning fw-bold">Première visite ? <a href="inscriptionView.php" class="text-light text-decoration-none">Inscrivez-vous</a></p>
+
 		<?php } ?>
+
 	</div>
 </section>
+
 <?php
 $content = ob_get_clean();
 

@@ -2,35 +2,50 @@
 
 $title = "Modification d'article";
 
-// session_start();
-
 ob_start();
-
 
 ?>
 
 <section id="background">
-    <section class="container">
+    <div class="container">
+        
         <h1 class="text-light pt-5 fw-bold mb-4"> MODIFIER UN ARTICLE</h1>
-        <?php while ($article = $requete->fetch()) {?>
+
+        <p class="m-4"><a href="index.php?page=admin" class="text-light text-decoration-none">Retour à l'accueil</a></p>
+
+        <?php 
+            while ($article = $requete->fetch()) {
+                
+                $id_article      = $article['id'];
+                $titre_article   = $article['title'];
+                $content_article = html_entity_decode($article['content']);
+                $date_article    = new DateTime($article['created_date']);
+        
+        ?>
+
             <form action="index.php?page=update&id=<?php echo $_GET['id']?>" method="post"> 
                 <p>
-                    <input type="hidden" name="id" value="<?php echo $article['id']; ?>" />
+                    <input type="hidden" name="id" value="<?php echo $id_article; ?>" />
                     <label for="newTitre" class="text-light mb-2 fw-bold h3">Titre</label><br>
-                    <input class="rounded w-50 border-0 p-2" type="text" name="newTitre" id="newTitre" value="<?php echo $article['title']; ?>">
+                    <input class="rounded w-50 border-0 p-2" type="text" name="newTitre" id="newTitre" value="<?php echo $titre_article; ?>">
                 </p>
                 <p>
                     <label for="newMessage" class="text-light mb-2 fw-bold h3">Contenu</label><br>
-                    <textarea name="newMessage" id="default"><?php echo $article['content']; ?></textarea>
+                    <textarea name="newMessage" id="default"><?php echo $content_article; ?></textarea>
                 </p>
                 <p>
+                    <input type="hidden" name="article_id" value="<?php echo $id_article; ?>" />
                     <button type="submit" name="update" class="bg-info text-light fw-bold border-0 w-100 p-3 rounded mb-2 text-uppercase">Modifier</button>
                 </p>   
             </form>
-            <?php } ?>
-    </section>
+
+        <?php } ?>
+        
+    </div>
 </section>
+
 <?php
+
 $content = ob_get_clean();
 
 require('base.php');

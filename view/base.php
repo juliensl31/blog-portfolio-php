@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +19,6 @@
 </head>
 
 <body>
-
     <header>
         <nav class="navbar bg-dark navbar-dark navbar-expand-md sticky-top">
             <div class="container">
@@ -43,7 +44,7 @@
             </div>
         </nav>
     </header>
-
+    
     <?= $content ?>
 
     <footer class="bg-dark p-2">
