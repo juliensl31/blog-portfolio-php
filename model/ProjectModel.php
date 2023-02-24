@@ -43,13 +43,14 @@ class ProjectModel extends Manager {
         return $result;
     }
 
-    public function updateProject($newTitre_projet, $newMessage_projet) {
+    public function updateProject($newTitre_projet, $newMessage_projet, $newTechno) {
         $bdd = $this->connection();
         $id = $_GET['id'];
         $newTitre_projet = htmlspecialchars($_POST['newTitreProjet']);
         $newMessage_projet = htmlspecialchars($_POST['newMessageProjet']);
-        $requete = $bdd->prepare("UPDATE project SET title = ?, content = ?  WHERE id = ?");
-        $result = $requete->execute([$newTitre_projet, $newMessage_projet, $id]);
+        $newTechno = htmlspecialchars($_POST['newTechno']);
+        $requete = $bdd->prepare("UPDATE project SET title = ?, content = ?, techno = ?  WHERE id = ?");
+        $result = $requete->execute([$newTitre_projet, $newMessage_projet, $newTechno, $id]);
 
         return $result;
     }

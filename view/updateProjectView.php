@@ -1,8 +1,8 @@
 <?php
 
-    $title = "Modification de projet";
+$title = "Modification de projet";
 
-    ob_start();
+ob_start();
 
 ?>
 
@@ -17,13 +17,12 @@
 
             <form action="index.php?page=update_project&id=<?php echo $_GET['id']?>" method="post"> 
                 <p>
-                    <input type="hidden" name="id" value="<?php echo $projet['id']; ?>" />
                     <label for="newTitreProjet" class="text-light mb-2 fw-bold h3">Titre</label><br>
                     <input class="rounded w-50 border-0 p-2" type="text" name="newTitreProjet" id="newTitre" value="<?php echo $projet['title']; ?>">
                 </p>
                 <p>
-                    <label for="techno" class="text-light mb-2 fw-bold h3">Technologie</label><br>
-                    <input class="rounded w-50 border-0 p-2" type="text" name="techno" id="techno" value="<?php echo $projet['techno']; ?>">
+                    <label for="newTechno" class="text-light mb-2 fw-bold h3">Technologie</label><br>
+                    <input class="rounded w-50 border-0 p-2" type="text" name="newTechno" id="newTechno" value="<?php echo $projet['techno']; ?>">
                 </p>
                 <p>
                     <label for="newMessageProjet" class="text-light mb-2 fw-bold h3">Contenu</label><br>

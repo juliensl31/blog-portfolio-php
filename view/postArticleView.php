@@ -13,6 +13,10 @@ ob_start();
         
         <form action="../index.php?page=admin" method="post">
             <p>
+                <label for="sujet" class="text-light mb-2 fw-bold h3">Sujet</label><br>
+                <input class="rounded w-50 border-0 p-2" type="text" name="sujet" id="sujet">
+            </p>
+            <p>
                 <label for="titre" class="text-light mb-2 fw-bold h3">Titre</label><br>
                 <input class="rounded w-50 border-0 p-2" type="text" name="titre" id="titre">
             </p>

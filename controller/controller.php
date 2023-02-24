@@ -73,9 +73,9 @@ function viewProject() {
     require('view/projectView.php'); 
 }
 
-function addArticle($titre, $message) {
+function addArticle($sujet, $titre, $message) {
     $articleModel = new ArticleModel;
-    $result = $articleModel->postArticle($titre, $message);
+    $result = $articleModel->postArticle($sujet, $titre, $message);
 
     if($result === false) {
         throw new Exception("Impossible d'ajouter votre article pour le moment");
@@ -112,9 +112,9 @@ function addArticle($titre, $message) {
     }
  }
 
- function changeArticle($newTitre, $newMessage){
+ function changeArticle($newSujet, $newTitre, $newMessage){
     $articleModel = new ArticleModel;
-    $result = $articleModel->updateArticle($newTitre, $newMessage);
+    $result = $articleModel->updateArticle($newSujet, $newTitre, $newMessage);
 
     if($result === false) {
         throw new Exception("Impossible de modifier votre article pour le moment");
@@ -125,9 +125,9 @@ function addArticle($titre, $message) {
     }
  }
 
- function changeProject($newTitre_projet, $newMessage_projet){
+ function changeProject($newTitre_projet, $newMessage_projet, $newTechno){
     $projectModel = new ProjectModel;
-    $result = $projectModel->updateProject($newTitre_projet, $newMessage_projet);
+    $result = $projectModel->updateProject($newTitre_projet, $newMessage_projet, $newTechno);
 
     if($result === false) {
         throw new Exception("Impossible de modifier votre projet pour le moment");

@@ -10,6 +10,7 @@ ob_start();
     while ($article = $requete->fetch()) {
 
         $id_article      = $article['id'];
+        $sujet_article   = $article['subject'];
         $titre_article   = $article['title'];
         $content_article = html_entity_decode($article['content']);
         $date_article    = new DateTime($article['created_date']);
@@ -28,6 +29,7 @@ ob_start();
 
 <section id="paragraphe" class="container text-center">
     <hr class="divider">
+    <h2 class="text-warning fw-bold text-capitalize"><?= $sujet_article ?></h2>
     <p><?= $content_article ?></p>
     <p class="text-end mb-5"><?= $date_article->format('d-m-Y H:i'); ?></p>
     <hr class="divider">

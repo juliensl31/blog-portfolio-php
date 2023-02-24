@@ -17,7 +17,7 @@ try {
 
             if (isset($_POST['titre']) && !empty($_POST['message'])) {
    
-                addArticle(htmlspecialchars_decode($_POST['titre']), htmlspecialchars_decode($_POST['message']));
+                addArticle(htmlspecialchars_decode($_POST['sujet']), htmlspecialchars_decode($_POST['titre']), htmlspecialchars_decode($_POST['message']));
                 
             
             } else if(isset($_POST['titre_projet']) && !empty($_POST['message_projet'])) {
@@ -43,7 +43,7 @@ try {
             
             if (isset($_POST['update'])) {
 
-                changeArticle(htmlspecialchars_decode($_POST['newTitre']), htmlspecialchars_decode($_POST['newMessage']));
+                changeArticle(htmlspecialchars_decode($_POST['newSujet']), htmlspecialchars_decode($_POST['newTitre']), htmlspecialchars_decode($_POST['newMessage']));
             }
 
         } else if ($_GET['page'] == 'update_project') {
@@ -52,7 +52,7 @@ try {
             
             if (isset($_POST['update_project'])) {
 
-                changeProject(htmlspecialchars_decode($_POST['newTitreProjet']), htmlspecialchars_decode($_POST['newMessageProjet']));
+                changeProject(htmlspecialchars_decode($_POST['newTitreProjet']), htmlspecialchars_decode($_POST['newMessageProjet']), htmlspecialchars_decode($_POST['newTechno']));
             }
 
         } else if ($_GET['page'] == 'archive-article') {
@@ -67,7 +67,7 @@ try {
 
             if(isset($_POST['comment'])) {
 
-                addComment(htmlspecialchars_decode($_POST['content']), htmlspecialchars_decode($_POST['article_id']));
+                addComment( htmlspecialchars_decode($_POST['content']), htmlspecialchars_decode($_POST['article_id']));
 
             } else {
 

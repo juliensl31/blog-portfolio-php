@@ -14,27 +14,22 @@ ob_start();
         <p class="m-4"><a href="index.php?page=admin" class="text-light text-decoration-none">Retour à l'accueil</a></p>
 
         <?php 
-            while ($article = $requete->fetch()) {
-                
-                $id_article      = $article['id'];
-                $titre_article   = $article['title'];
-                $content_article = html_entity_decode($article['content']);
-                $date_article    = new DateTime($article['created_date']);
-        
-        ?>
+            while ($article = $requete->fetch()) { ?>
 
             <form action="index.php?page=update&id=<?php echo $_GET['id']?>" method="post"> 
                 <p>
-                    <input type="hidden" name="id" value="<?php echo $id_article; ?>" />
+                    <label for="newSujet" name="newSujet" class="text-light mb-2 fw-bold h3">Sujet</label><br>
+                    <input class="rounded w-50 border-0 p-2" type="text" name="newSujet" id="newSujet" value="<?php echo $article['subject']; ?>">
+                </p>
+                <p>
                     <label for="newTitre" class="text-light mb-2 fw-bold h3">Titre</label><br>
-                    <input class="rounded w-50 border-0 p-2" type="text" name="newTitre" id="newTitre" value="<?php echo $titre_article; ?>">
+                    <input class="rounded w-50 border-0 p-2" type="text" name="newTitre" id="newTitre" value="<?php echo $article['title']; ?>">
                 </p>
                 <p>
                     <label for="newMessage" class="text-light mb-2 fw-bold h3">Contenu</label><br>
-                    <textarea name="newMessage" id="default"><?php echo $content_article; ?></textarea>
+                    <textarea name="newMessage" id="default"><?php echo $article['content']; ?></textarea>
                 </p>
                 <p>
-                    <input type="hidden" name="article_id" value="<?php echo $id_article; ?>" />
                     <button type="submit" name="update" class="bg-info text-light fw-bold border-0 w-100 p-3 rounded mb-2 text-uppercase">Modifier</button>
                 </p>   
             </form>

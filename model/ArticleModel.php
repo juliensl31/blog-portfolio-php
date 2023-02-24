@@ -34,22 +34,23 @@ class ArticleModel extends Manager {
     }
 
 
-    public function postArticle($titre, $message) {
+    public function postArticle($sujet, $titre, $message) {
 
         $bdd = $this->connection();
-        $requete = $bdd->prepare('INSERT INTO article(title, content) VALUES(?, ?)');
-        $result = $requete->execute([$titre, $message]);
+        $requete = $bdd->prepare('INSERT INTO article(subject, title, content) VALUES(?, ?, ?)');
+        $result = $requete->execute([$sujet, $titre, $message]);
 
         return $result;
     }
 
-    public function updateArticle($newTitre, $newMessage) {
+    public function updateArticle($newSujet, $newTitre, $newMessage) {
         $bdd = $this->connection();
         $id = $_GET['id'];
+        $newSujet = htmlspecialchars($_POST['newSujet']);
         $newTitre = htmlspecialchars($_POST['newTitre']);
         $newMessage = htmlspecialchars($_POST['newMessage']);
-        $requete = $bdd->prepare("UPDATE article SET title = ?, content = ?  WHERE id = ?");
-        $result = $requete->execute([$newTitre, $newMessage, $id]);
+        $requete = $bdd->prepare("UPDATE article SET subject = ?, title = ?, content = ?  WHERE id = ?");
+        $result = $requete->execute([$newSujet, $newTitre, $newMessage, $id]);
 
         return $result;
     }
