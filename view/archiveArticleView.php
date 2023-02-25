@@ -25,7 +25,7 @@ ob_start();
 
     <div class="col-md-4 mb-3">
         <div class="card border-dark bg-dark text-light h-100">
-            <img src="public/assets/blog.jpg" class="card-img-top" alt="blog">
+            <img src="public/assets/blog_3.jpg" class="card-img-top" alt="blog">
             <div class="card-header fw-bold text-capitalize"><?= $sujet_article ?></div>
             <div class="card-body">
                 <small><?= $date_article->format('d-m-Y H:i'); ?></small>

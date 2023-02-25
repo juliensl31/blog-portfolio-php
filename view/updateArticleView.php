@@ -11,8 +11,6 @@ ob_start();
         
         <h1 class="text-light pt-5 fw-bold mb-4"> MODIFIER UN ARTICLE</h1>
 
-        <p class="m-4"><a href="index.php?page=admin" class="text-light text-decoration-none">Retour à l'accueil</a></p>
-
         <?php 
             while ($article = $requete->fetch()) { ?>
 

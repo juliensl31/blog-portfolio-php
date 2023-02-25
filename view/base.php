@@ -11,10 +11,12 @@
     <link rel="stylesheet" href="../public/design/css/style.css">
     <script src="https://cdn.tiny.cloud/1/vmzf778o0oenm6a4iu7s93p4am2rqkrfulgd9c8hjbv95nyz/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
     <script>
-        tinymce.init({
-            selector: 'textarea#default'
-        });
-    </script>
+    tinymce.init({
+      selector: 'textarea#default',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    });
+  </script>
     <title><?= $title ?></title>
 </head>
 

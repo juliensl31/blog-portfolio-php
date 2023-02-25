@@ -41,7 +41,31 @@ ob_start();
 
     <h3 class="text-warning mb-3 fw-bold">Commentaires</h3>
 
-    <div class="mb-3">
+    <form action="index.php?page=article&id=<?php echo $_GET['id'] ?>" method="post">
+        <p>
+            <textarea name="content" id="default" placeholder="Ajouter un commentaire..."></textarea>
+        </p>
+
+        <?php if (!isset($_SESSION['connect'])) { ?>
+
+        <p>
+            <button class="bg-warning  border-0 w-100 p-3 rounded mb-3 text-uppercase">
+                <a href="view/connectionView.php" class="text-light fw-bold text-decoration-none">Veuillez vous connecter pour laisser un commentaire</a>
+            </button>
+        </p>
+
+        <?php } else if (isset($_SESSION['connect'])) { ?>
+
+        <p>
+            <input type="hidden" name="article_id" value="<?php echo $id_article; ?>" />
+            <button type="submit" name="comment" class="bg-warning text-light fw-bold border-0 w-100 p-3 rounded mb-3 text-uppercase">Ajouter un commentaire</button>
+        </p>
+
+        <?php } ?>
+
+    </form>
+
+    <div class="mb-5">
         <?php
 
             while ($commentaire = $req->fetch()) {
@@ -64,29 +88,6 @@ ob_start();
 
     </div>
 
-    <form action="index.php?page=article&id=<?php echo $_GET['id'] ?>" method="post">
-        <p>
-            <textarea name="content" id="default" placeholder="Ajouter un commentaire..."></textarea>
-        </p>
-
-        <?php if (!isset($_SESSION['connect'])) { ?>
-
-        <p>
-            <button class="bg-warning  border-0 w-100 p-3 rounded mb-5 text-uppercase">
-                <a href="view/connectionView.php" class="text-light fw-bold text-decoration-none">Veuillez vous connecter pour laisser un commentaire</a>
-            </button>
-        </p>
-
-        <?php } else if (isset($_SESSION['connect'])) { ?>
-
-        <p>
-            <input type="hidden" name="article_id" value="<?php echo $id_article; ?>" />
-            <button type="submit" name="comment" class="bg-warning text-light fw-bold border-0 w-100 p-3 rounded mb-5 text-uppercase">Ajouter un commentaire</button>
-        </p>
-
-        <?php } ?>
-
-    </form>
 </section>
 
 <?php
