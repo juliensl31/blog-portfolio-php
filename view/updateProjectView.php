@@ -10,6 +10,8 @@ ob_start();
     <div class="container">
 
         <h1 class="text-light pt-5 fw-bold mb-4"> MODIFIER UN PROJET</h1>
+
+        <p class="m-4"><a href="index.php?page=admin" class="text-light text-decoration-none">Retour à l'accueil</a></p>
         
         <?php while ($projet = $req->fetch()) {?>
 
