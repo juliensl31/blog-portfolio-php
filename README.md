@@ -75,3 +75,14 @@ Pour ce projet il faut créer une base de donnée "blog_portfolio" qui contient 
 |comment_content|text|utf8_general_ci, NOT NULL|Commentaire
 |article_id|INT(11)|NOT NULL|Récupère l'ID de l'article
 |created_date|DATETIME|CURRENT_TIMESTAMP, NOT NULL|Date de création du commentaire
+
+## Info de connexion
+Informations de connexion à la base de données à modifier dans:
+
+- Model
+  - Manager.php
+ 
+et dans 
+
+- src
+  - connection.php
